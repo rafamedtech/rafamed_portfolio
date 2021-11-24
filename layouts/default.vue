@@ -35,15 +35,17 @@ export default {
 
 :root {
   /* Base Colors */
-  --primary-color: #00acbf;
-  --secondary-color: #1f252d;
+  /* --primary-color: #6272a4; */
+  --primary-color: #8be9fd;
+  --secondary-color: #282a36;
   --third-color: #e5e5e5;
 
-  --accent-color: #e93b81;
+  --accent-color: rgba(255, 121, 198, 0.8);
+  /* --accent-color: #ff80bf; */
 
   /* Neumorphism Effect Colors*/
-  --shadow-up: #1a1f26;
-  --shadow-down: #242b34;
+  --shadow-up: #22242e;
+  --shadow-down: #2e303e;
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -82,6 +84,7 @@ label,
 span {
   font-size: 1.6rem;
   color: var(--third-color);
+  color: lightgreen;
 }
 
 input,
@@ -190,7 +193,15 @@ textarea:focus {
   width: 30rem;
   height: 30rem;
   border-radius: 69% 31% 30% 67% / 72% 47% 40% 26%;
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
+  border: 1px solid yellow;
+}
+
+@media (min-width: 768px) {
+  .blob {
+    width: 40rem;
+    height: 40rem;
+  }
 }
 
 @media (min-width: 1024px) {

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Hero Section  -->
     <section class="hero">
       <HeroImg class="blob" />
       <div>
@@ -9,7 +10,6 @@
       </div>
     </section>
 
-    <!-- Main content  -->
     <main>
       <!-- About Section -->
       <section class="about neumorphism">
@@ -32,29 +32,9 @@
         </article>
 
         <div class="neumorphism card">
-          <article>
-            <i class="devicon-figma-plain"></i>
-            <p>Figma</p>
-          </article>
-          <article>
-            <i class="devicon-javascript-plain"></i>
-            <p>Javascript</p>
-          </article>
-          <article>
-            <i class="devicon-vuejs-plain"></i>
-            <p>vue</p>
-          </article>
-          <article>
-            <i class="devicon-nuxtjs-plain"></i>
-            <p>Nuxt</p>
-          </article>
-          <article>
-            <i class="devicon-tailwindcss-plain"></i>
-            <p>TailwindCSS</p>
-          </article>
-          <article>
-            <i class="devicon-django-plain"></i>
-            <p>Django</p>
+          <article v-for="(skill, index) in skills" :key="index">
+            <i :class="`devicon-${skill.toLowerCase()}-plain`"></i>
+            <p>{{ skill }}</p>
           </article>
         </div>
       </section>
@@ -62,17 +42,31 @@
       <!-- Projects Section -->
       <section class="projects">
         <h2 class="headings">Here is some of my work</h2>
-        <div class="index-projects-container">
-          <ProjectCard v-for="index in 4" :key="index" />
-        </div>
+
+        <ProjectCard class="index-projects-container" />
       </section>
+
+      <!-- Contact Section -->
+      <ContactForm />
     </main>
-    <ContactForm />
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      skills: [
+        "Figma",
+        "TailwindCSS",
+        "Javascript",
+        "Vuejs",
+        "Nuxtjs",
+        "Django",
+      ],
+    };
+  },
+};
 </script>
 
 <style>
@@ -95,12 +89,14 @@ export default {};
 
 .hero h2 {
   font-weight: 400;
+  letter-spacing: 1.5px;
   /* font-size: 4.2rem; */
   color: var(--primary-color);
 }
 
 .hero h3 {
   font-weight: 300;
+  color: lightgreen;
 }
 
 /*
@@ -183,7 +179,7 @@ main {
 }
 
 .skills .card p {
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
 
 .projects {
@@ -261,7 +257,7 @@ Hero Section
     height: 40rem;
   }
   .index-projects-container {
-    max-width: 80%;
+    max-width: 50%;
   }
 }
 </style>

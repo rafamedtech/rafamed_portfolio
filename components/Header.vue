@@ -52,7 +52,7 @@ header {
   display: block;
   padding: 1rem;
   font-size: 1.6rem;
-  color: var(--third-color);
+  color: var(--primary-color);
   text-decoration: none;
   transition: 0.2s;
 }
@@ -61,10 +61,6 @@ header {
   border-radius: 0;
   border-bottom: 2px solid var(--primary-color);
   color: var(--accent-color);
-}
-
-.current::after {
-  content: "🏢";
 }
 
 .logo {
@@ -87,11 +83,6 @@ header {
     background-color: var(--secondary-color);
   }
 
-  .blob {
-    width: 40rem;
-    height: 40rem;
-  }
-
   /*
 -----------------------------
 Navigation Bar
@@ -106,7 +97,7 @@ Navigation Bar
   }
 
   .nav ul li:hover a {
-    color: var(--primary-color);
+    color: var(--accent-color);
     transform: translateY(-0.5rem);
     transition: transform 0.2s;
   }
@@ -119,7 +110,7 @@ Navigation Bar
   }
 
   .nav ul li a {
-    color: var(--third-color);
+    color: lightgreen;
   }
 }
 </style>

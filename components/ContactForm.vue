@@ -6,13 +6,17 @@
       <article class="contact-content">
         <ContactImg class="blob" />
 
-        <form id="contact-form" class="neumorphism">
+        <form
+          @submit.prevent="sendMessage()"
+          id="contact-form"
+          class="neumorphism"
+        >
           <label for="name">Full Name</label>
-          <input type="text" id="name" required />
+          <input v-model="name" type="text" id="name" required />
           <label for="email">Email</label>
-          <input type="email" id="email" required />
+          <input v-model="email" type="email" id="email" required />
           <label for="message">Your Message</label>
-          <textarea id="message" required></textarea>
+          <textarea v-model="message" id="message" required></textarea>
 
           <input class="btn cta form" type="submit" value="Submit" />
         </form>
@@ -22,7 +26,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      name: "",
+      email: "",
+      message: "",
+    };
+  },
+  methods: {
+    sendMessage() {
+      console.log(this.name, this.email, this.message);
+    },
+  },
+};
 </script>
 
 <style>

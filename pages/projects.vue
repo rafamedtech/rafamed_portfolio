@@ -5,9 +5,8 @@
       Take a look to what I’ve done. From simple brochure websites and landing
       pages to fully functional web apps.
     </p>
-    <div class="projects-container">
-      <ProjectCard v-for="index in 4" :key="index" />
-    </div>
+
+    <ProjectCard class="projects-container" />
   </div>
 </template>
 
@@ -30,9 +29,9 @@ export default {};
 }
 
 .projects-main h2 {
-  font-weight: 400;
+  font-weight: 300;
   text-align: center;
-  color: var(--third-color);
+  color: var(--accent-color);
 }
 
 .projects-main p {
