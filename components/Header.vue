@@ -68,6 +68,7 @@ header {
   text-decoration: none;
   color: var(--primary-color);
   font-family: "Comforter Brush", cursive;
+  transition: 0.3s;
 }
 
 @media (min-width: 768px) {
@@ -111,6 +112,12 @@ Navigation Bar
 
   .nav ul li a {
     color: lightgreen;
+  }
+}
+@media (min-width: 1024px) {
+  .logo:hover {
+    color: yellow;
+    transition: 0.3s;
   }
 }
 </style>

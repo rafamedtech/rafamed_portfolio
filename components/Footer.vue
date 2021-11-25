@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Footer Section -->
     <footer>
       <section class="social-links">
         <a
@@ -52,6 +51,13 @@ footer {
 @media (min-width: 768px) {
   footer {
     margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .social-links i:hover {
+    color: var(--primary-color);
+    transition: 0.3s;
   }
 }
 </style>

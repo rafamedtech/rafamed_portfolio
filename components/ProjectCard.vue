@@ -68,19 +68,19 @@ export default {
 </script>
 
 <style scoped>
-.project p {
-  text-align: center;
-  padding: 2rem;
-  color: var(--primary-color);
-}
-
 .project {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  min-width: 35rem;
   width: 35rem;
   margin: 0 auto;
+}
+
+.project p {
+  text-align: center;
+  padding: 2rem;
+  color: var(--primary-color);
 }
 
 .project img {
@@ -103,6 +103,13 @@ export default {
 
   color: var(--secondary-color);
   border: 1px solid transparent;
+}
+
+.project-btns .btn:hover,
+.project-btns .btn.cta:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 1px solid var(--primary-color);
 }
 
 .project-btns .btn.cta {

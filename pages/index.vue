@@ -54,6 +54,21 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: "Rafamed.Dev",
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          hid: "description",
+          name: "description",
+          content: "Home",
+        },
+      ],
+    };
+  },
+
   data() {
     return {
       skills: [
@@ -96,14 +111,8 @@ export default {
 
 .hero h3 {
   font-weight: 300;
-  color: lightgreen;
+  color: #90ee90;
 }
-
-/*
------------------------------
-Main Section
------------------------------
-*/
 
 main {
   margin-top: 8rem;
@@ -196,21 +205,13 @@ main {
 }
 
 @media (min-width: 768px) {
-  /*
------------------------------
-Hero Section
------------------------------
-*/
-
   .hero {
     margin-top: 8rem;
   }
 
-  /*
------------------------------
-Main Section
------------------------------
-*/
+  .about p {
+    padding: 0 2rem;
+  }
 
   .skills div {
     display: flex;
@@ -230,12 +231,6 @@ Main Section
 }
 
 @media (min-width: 1024px) {
-  /*
------------------------------
-Hero Section
------------------------------
-*/
-
   .hero {
     flex-direction: row-reverse;
     justify-content: space-around;

@@ -1,13 +1,12 @@
 <template>
   <div>
-    <!-- Contact Section -->
     <section class="contact">
       <h2 class="headings">Let’s work together!</h2>
       <article class="contact-content">
         <ContactImg class="blob" />
 
         <form
-          @submit.prevent="sendMessage()"
+          @submit.prevent="sendMessage"
           id="contact-form"
           class="neumorphism"
         >
@@ -32,11 +31,17 @@ export default {
       name: "",
       email: "",
       message: "",
+      submission: {
+        name: this.name,
+      },
     };
   },
   methods: {
     sendMessage() {
-      console.log(this.name, this.email, this.message);
+      console.log([this.name, this.email, this.message]);
+      this.name = "";
+      this.email = "";
+      this.message = "";
     },
   },
 };
@@ -65,6 +70,36 @@ export default {
   gap: 2rem;
   min-width: 35rem;
   margin: 4rem 1rem 1rem 1rem;
+}
+
+label {
+  border-bottom: 2px solid var(--primary-color);
+  width: fit-content;
+}
+
+input {
+  height: 5rem;
+  border: none;
+  padding: 1rem;
+  background-color: transparent;
+  border: 1px solid var(--third-color);
+  color: var(--primary-color);
+}
+
+textarea {
+  height: 10rem;
+  background-color: transparent;
+  padding: 1rem;
+  color: var(--primary-color);
+  border: 1px solid var(--third-color);
+}
+
+input:focus,
+textarea:focus {
+  border-color: transparent;
+  outline: 2px solid var(--primary-color);
+  transition: 0.1s;
+  color: #e5e5e5;
 }
 
 @media (min-width: 768px) {

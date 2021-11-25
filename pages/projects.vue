@@ -11,19 +11,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title: "Rafamed.Dev | Projects",
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          hid: "description",
+          name: "description",
+          content: "Projects",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
-.projects-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  width: 100%;
-  padding: 2rem;
-  justify-content: space-around;
-}
-
 .projects-main {
   margin-top: 4rem;
 }
@@ -38,6 +44,15 @@ export default {};
   text-align: center;
   padding: 2rem;
   color: var(--primary-color);
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  padding: 2rem;
+  justify-content: space-around;
 }
 
 @media (min-width: 768px) {

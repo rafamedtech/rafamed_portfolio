@@ -9,16 +9,6 @@
 <script>
 export default {
   head: {
-    title: "Rafamed.Dev",
-    meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      {
-        hid: "description",
-        name: "description",
-        content: "Welcome to my portfolio website!",
-      },
-    ],
     link: [
       {
         rel: "stylesheet",
@@ -35,22 +25,17 @@ export default {
 
 :root {
   /* Base Colors */
+
   /* --primary-color: #6272a4; */
   --primary-color: #8be9fd;
   --secondary-color: #282a36;
   --third-color: #e5e5e5;
 
-  --accent-color: rgba(255, 121, 198, 0.8);
-  /* --accent-color: #ff80bf; */
+  --accent-color: #ff79c6cc;
 
   /* Neumorphism Effect Colors*/
   --shadow-up: #22242e;
   --shadow-down: #2e303e;
-}
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: var(--secondary-color);
-  transition: 0.3s ease-out;
 }
 
 * {
@@ -61,6 +46,12 @@ body {
 
 html {
   font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--secondary-color);
+  transition: 0.3s ease-out;
 }
 
 h2 {
@@ -77,6 +68,7 @@ h3 {
 a {
   color: inherit;
   text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 p,
@@ -90,39 +82,10 @@ span {
 input,
 textarea,
 button,
-select,
-a {
+select {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 1rem;
-}
-
-label {
-  border-bottom: 2px solid var(--primary-color);
-  width: fit-content;
-}
-
-input {
-  height: 5rem;
-  border: none;
-  padding: 1rem;
-  background-color: transparent;
-  border: 1px solid var(--third-color);
-  color: var(--primary-color);
-}
-
-textarea {
-  height: 10rem;
-  background-color: transparent;
-  padding: 1rem;
-  color: var(--primary-color);
-}
-
-input:focus,
-textarea:focus {
-  border-color: transparent;
-  outline: 2px solid var(--primary-color);
-  background-color: #fff;
-  transition: 0.1s;
+  font-family: inherit;
 }
 
 .neumorphism {
@@ -138,15 +101,6 @@ textarea:focus {
   line-height: 1;
   color: var(--primary-color);
   padding: 1rem;
-}
-
-.button-item {
-  display: none;
-}
-
-.button-item .btn {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
 }
 
 .btn {
@@ -173,13 +127,9 @@ textarea:focus {
 }
 
 .btn.cta:hover {
-  background-color: #fff;
-  color: var(--primary-color);
+  background-color: transparent;
+  color: var(--accent-color);
   border: 1px solid var(--primary-color);
-}
-
-.btn.cta:active {
-  transform: scale(0.98);
 }
 
 .btn.cta.form {
@@ -193,14 +143,13 @@ textarea:focus {
   width: 30rem;
   height: 30rem;
   border-radius: 69% 31% 30% 67% / 72% 47% 40% 26%;
-  /* background-color: var(--primary-color); */
   border: 1px solid yellow;
 }
 
 @media (min-width: 768px) {
   .blob {
-    width: 40rem;
-    height: 40rem;
+    width: 30rem;
+    height: 30rem;
   }
 }
 
