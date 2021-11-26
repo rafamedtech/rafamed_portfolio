@@ -11,11 +11,15 @@
           class="neumorphism"
         >
           <label for="name">Full Name</label>
-          <input v-model="name" type="text" id="name" required />
+          <input v-model="submission.name" type="text" id="name" required />
           <label for="email">Email</label>
-          <input v-model="email" type="email" id="email" required />
+          <input v-model="submission.email" type="email" id="email" required />
           <label for="message">Your Message</label>
-          <textarea v-model="message" id="message" required></textarea>
+          <textarea
+            v-model="submission.message"
+            id="message"
+            required
+          ></textarea>
 
           <input class="btn cta form" type="submit" value="Submit" />
         </form>
@@ -28,20 +32,19 @@
 export default {
   data() {
     return {
-      name: "",
-      email: "",
-      message: "",
       submission: {
-        name: this.name,
+        name: "",
+        email: "",
+        message: "",
       },
     };
   },
   methods: {
-    sendMessage() {
-      console.log([this.name, this.email, this.message]);
-      this.name = "";
-      this.email = "";
-      this.message = "";
+    async sendMessage() {
+      await this.$supabase.from("messages").insert([this.submission]);
+      this.submission.name = "";
+      this.submission.email = "";
+      this.submission.message = "";
     },
   },
 };
