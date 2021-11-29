@@ -46,6 +46,12 @@
         <ProjectCard class="index-projects-container" />
       </section>
 
+      <!-- Blog Section -->
+      <section class="blog">
+        <h2 class="headings">My latest blog posts</h2>
+        <PostCard />
+      </section>
+
       <!-- Contact Section -->
       <ContactForm />
     </main>
@@ -54,6 +60,7 @@
 
 <script>
 import { mapState } from "vuex";
+
 export default {
   head() {
     return {
@@ -179,6 +186,13 @@ main {
 
 .skills .card p {
   color: var(--accent-color);
+}
+
+.blog {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 8rem;
 }
 
 .projects {

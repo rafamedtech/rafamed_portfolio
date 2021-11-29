@@ -26,13 +26,11 @@ export default {
 :root {
   /* Base Colors */
 
-  /* --primary-color: #6272a4; */
   --primary-color: #8be9fd;
 
   --secondary-color: #282a36;
   --third-color: #e5e5e5;
 
-  /* --accent-color: #ee838b; */
   --accent-color: #ff79c6cc;
 
   /* Neumorphism Shadow Colors*/
