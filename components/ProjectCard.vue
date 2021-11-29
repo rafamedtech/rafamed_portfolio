@@ -1,7 +1,7 @@
 <template>
   <div>
     <article
-      v-for="(project, index) in _projects"
+      v-for="(project, index) in projects"
       :key="index"
       class="project neumorphism"
     >
@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-
 export default {
   computed: {
-    ...mapState(["_projects"]),
+    projects() {
+      return this.$store.getters["loadProjects"];
+    },
   },
 };
 </script>
