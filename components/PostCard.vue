@@ -1,20 +1,30 @@
 <template>
-  <article to="/" class="post neumorphism">
-    <img src="https://i.imgur.com/WaeyNqt.png" alt="" />
-    <article>
-      <h2>Post Title 1</h2>
-      <span>November 28, 2021</span>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur,
-        maiores.
-      </p>
-      <a class="btn cta" href="/post.html">Read more</a>
+  <div>
+    <article v-for="post in posts" :key="post.id" class="post neumorphism">
+      <img src="https://i.imgur.com/WaeyNqt.png" alt="" />
+
+      <article>
+        <h2>{{ post.title }}</h2>
+        <span>{{ post.published }}</span>
+        <p>
+          {{ post.excerpt }}
+        </p>
+        <nuxt-link class="btn cta" :to="`blog/${post.slug}`"
+          >Read more</nuxt-link
+        >
+      </article>
     </article>
-  </article>
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    posts() {
+      return this.$store.getters["blog/getPosts"];
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -27,10 +37,6 @@ export default {};
   margin: 0 auto;
   transition: 0.3s;
   border: 2px solid transparent;
-}
-
-.post:hover {
-  border: 2px solid yellow;
 }
 
 .post article {

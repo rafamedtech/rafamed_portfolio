@@ -26,7 +26,7 @@
 export default {
   computed: {
     projects() {
-      return this.$store.getters["loadProjects"];
+      return this.$store.getters["projects/getProjects"];
     },
   },
 };

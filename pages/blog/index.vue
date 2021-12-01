@@ -3,7 +3,7 @@
     <h2>Blog</h2>
     <p>Here are some blogposts about my developer journey.</p>
     <section class="posts-container">
-      <PostCard v-for="(posts, index) in 4" :key="index" />
+      <PostCard />
     </section>
   </div>
 </template>

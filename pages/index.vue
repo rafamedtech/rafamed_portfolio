@@ -42,7 +42,6 @@
       <!-- Projects Section -->
       <section class="projects">
         <h2 class="headings">Here is some of my work</h2>
-
         <ProjectCard class="index-projects-container" />
       </section>
 
