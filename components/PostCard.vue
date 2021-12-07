@@ -5,7 +5,7 @@
 
       <article>
         <h2>{{ post.title }}</h2>
-        <span>{{ post.published }}</span>
+        <span>{{ post.published.substring(0, 10) }}</span>
         <p>
           {{ post.excerpt }}
         </p>

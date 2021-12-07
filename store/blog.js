@@ -6,7 +6,7 @@ export const actions = {
   async loadPosts({ commit }) {
     let { data } = await this.$axios.get("http://127.0.0.1:8000/blog/posts/");
 
-    console.log(data);
+    // console.log(data);
     commit("setPosts", data);
   },
 };

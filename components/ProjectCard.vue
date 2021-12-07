@@ -1,21 +1,26 @@
 <template>
   <div>
     <article
-      v-for="(project, index) in projects"
-      :key="index"
+      v-for="project in projects"
+      :key="project.id"
       class="project neumorphism"
     >
-      <img :src="project.image" alt="Render" />
-      <h3>{{ project.name }}</h3>
+      <button @click="deleteProject(project.id)" class="delete-icon">X</button>
+      <img
+        :src="`http://localhost:8000${project.featured_image}`"
+        alt="Render"
+      />
+
+      <h3>{{ project.title }}</h3>
       <p>{{ project.description }}</p>
       <div class="project-btns">
-        <a class="btn" :href="project.sourceLink" target="_blank">Source</a>
+        <a class="btn" :href="project.source_link" target="_blank">Source</a>
 
-        <a class="btn cta" :href="project.liveLink" target="_blank">Live 🚀</a>
+        <a class="btn cta" :href="project.demo_link" target="_blank">Live 🚀</a>
       </div>
       <div class="tags-container">
         <span v-for="(tag, index) in project.tags" :key="index" class="tag">{{
-          tag
+          tag.name
         }}</span>
       </div>
     </article>
@@ -24,6 +29,11 @@
 
 <script>
 export default {
+  methods: {
+    deleteProject(id) {
+      this.$store.dispatch("projects/deleteProject", id);
+    },
+  },
   computed: {
     projects() {
       return this.$store.getters["projects/getProjects"];
@@ -33,6 +43,28 @@ export default {
 </script>
 
 <style scoped>
+.delete-icon {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  cursor: pointer;
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  background: var(--accent-color);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  padding: 0;
+  transition: 0.3s;
+}
+
+.delete-icon:hover {
+  background: var(--secondary-color);
+  color: var(--accent-color);
+  border: 1px solid var(--primary-color);
+}
 .project {
   display: flex;
   flex-direction: column;
@@ -40,6 +72,7 @@ export default {
   min-width: 35rem;
   width: 35rem;
   margin: 0 auto;
+  position: relative;
 }
 
 .project p {

@@ -1,6 +1,6 @@
 <template>
-  <div v-if="post">
-    <nuxt-link to="/blog">Go back</nuxt-link>
+  <div class="post-main" v-if="post">
+    <nuxt-link class="back-btn" to="/blog">Go back</nuxt-link>
     <div class="post-container">
       <h1>{{ post.title }}</h1>
       <span>{{ post.published.substring(0, 10) }}</span>
@@ -31,8 +31,8 @@ export default {
 };
 </script>
 
-<style scoped>
-div {
+<style>
+.post-main {
   margin-top: 12rem;
 }
 .post-container {
@@ -50,15 +50,25 @@ h1 {
   color: var(--primary-color);
 }
 
-article p {
-  color: var(--primary-color);
+.post-body p {
+  color: var(--third-color);
 }
+
+.post-body img {
+  width: 30rem;
+}
+
+/* .post-body code {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  padding: 1rem;
+} */
 
 p {
   font-size: 1.8rem;
 }
 
-a {
+.back-btn {
   font-size: 1.5rem;
   padding: 2rem;
   color: var(--accent-color);
