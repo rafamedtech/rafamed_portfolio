@@ -5,7 +5,13 @@
       :key="project.id"
       class="project neumorphism"
     >
-      <button @click="deleteProject(project.id)" class="delete-icon">X</button>
+      <button
+        v-if="isAuth"
+        @click="deleteProject(project.id)"
+        class="delete-icon"
+      >
+        X
+      </button>
       <img
         :src="`http://localhost:8000${project.featured_image}`"
         alt="Render"
@@ -29,6 +35,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isAuth: true,
+    };
+  },
   methods: {
     deleteProject(id) {
       this.$store.dispatch("projects/deleteProject", id);

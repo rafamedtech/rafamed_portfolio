@@ -8,7 +8,7 @@
           landing pages to fully functional web apps.
         </p>
       </div>
-      <nuxt-link to="/projects/add-project/">
+      <nuxt-link v-if="isAuth" to="/projects/add-project/">
         <button class="btn cta">Add Project</button>
       </nuxt-link>
     </div>
@@ -29,6 +29,11 @@ export default {
           content: "Projects",
         },
       ],
+    };
+  },
+  data() {
+    return {
+      isAuth: true,
     };
   },
 };
