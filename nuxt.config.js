@@ -42,11 +42,30 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
+    "@nuxtjs/auth-next",
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: "http://localhost:8000",
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // Auth module configuration: https://go.nuxtjs.dev/config-auth
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "/users/token/",
+            method: "post",
+            propertyName: "token",
+          },
+        },
+        tokenType: "",
+      },
+    },
+  },
 };

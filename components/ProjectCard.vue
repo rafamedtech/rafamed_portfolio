@@ -6,7 +6,7 @@
       class="project neumorphism"
     >
       <button
-        v-if="isAuth"
+        v-if="$auth.loggedIn"
         @click="deleteProject(project.id)"
         class="delete-icon"
       >
@@ -34,12 +34,12 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
-  data() {
-    return {
-      isAuth: true,
-    };
+  computed: {
+    ...mapState(["accessToken"]),
   },
+
   methods: {
     deleteProject(id) {
       this.$store.dispatch("projects/deleteProject", id);

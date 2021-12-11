@@ -8,7 +8,7 @@
           landing pages to fully functional web apps.
         </p>
       </div>
-      <nuxt-link v-if="isAuth" to="/projects/add-project/">
+      <nuxt-link v-if="`${this.$auth.loggedIn}`" to="/projects/add-project/">
         <button class="btn cta">Add Project</button>
       </nuxt-link>
     </div>
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   head() {
     return {
@@ -29,11 +30,6 @@ export default {
           content: "Projects",
         },
       ],
-    };
-  },
-  data() {
-    return {
-      isAuth: true,
     };
   },
 };

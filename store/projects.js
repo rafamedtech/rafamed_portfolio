@@ -14,7 +14,7 @@ export const actions = {
       "http://localhost:8000/projects/create-project/",
       payload,
       {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: { Authorization: "multipart/form-data" },
       }
     );
 
