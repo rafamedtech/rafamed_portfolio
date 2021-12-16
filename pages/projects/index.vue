@@ -4,21 +4,25 @@
       <div class="description-header">
         <h2>Projects</h2>
         <p>
-          Take a look to what I’ve done. From simple brochure websites and
+          Take a look to what I`ve done. From simple brochure websites and
           landing pages to fully functional web apps.
         </p>
       </div>
-      <nuxt-link v-if="`${this.$auth.loggedIn}`" to="/projects/add-project/">
+      <nuxt-link v-if="$auth.loggedIn" to="/projects/add-project/">
         <button class="btn cta">Add Project</button>
       </nuxt-link>
     </div>
 
-    <ProjectCard class="projects-container" />
+    <ProjectCard
+      v-for="project in projects"
+      :key="project.id"
+      :project="project"
+      class="projects-container"
+    />
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
   head() {
     return {
@@ -31,6 +35,11 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    projects() {
+      return this.$store.getters["projects/getProjects"];
+    },
   },
 };
 </script>

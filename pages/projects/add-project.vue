@@ -32,6 +32,7 @@
 
       <input class="btn cta" type="submit" value="Create Project" />
     </form>
+    <SingleProjectCard :featured_image="featured_image" :title="title" />
   </div>
 </template>
 

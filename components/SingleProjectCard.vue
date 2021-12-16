@@ -3,28 +3,25 @@
     <article class="project neumorphism">
       <button
         v-if="$auth.loggedIn"
-        @click="deleteProject(id)"
+        @click="deleteProject(project.id)"
         class="delete-icon"
       >
         X
       </button>
-      <img
-        :src="`http://localhost:8000${project.featured_image}`"
-        alt="Render"
-      />
+      <img :src="featured_image" alt="Render" />
 
-      <h3>{{ project.title }}</h3>
-      <p>{{ project.description }}</p>
+      <h3>{{ title }}</h3>
+      <p>{{ description }}</p>
       <div class="project-btns">
-        <a class="btn" :href="project.source_link" target="_blank">Source</a>
+        <a class="btn" :href="source_link" target="_blank">Source</a>
 
-        <a class="btn cta" :href="project.demo_link" target="_blank">Live 🚀</a>
+        <a class="btn cta" :href="demo_link" target="_blank">Live 🚀</a>
       </div>
-      <div class="tags-container">
+      <!-- <div class="tags-container">
         <span v-for="(tag, index) in project.tags" :key="index" class="tag">{{
           tag.name
         }}</span>
-      </div>
+      </div> -->
     </article>
   </div>
 </template>
@@ -32,9 +29,11 @@
 <script>
 export default {
   props: {
-    project: {
-      type: Object,
-      required: true,
+    featured_image: {
+      type: String,
+    },
+    title: {
+      type: String,
     },
   },
   methods: {
@@ -42,11 +41,6 @@ export default {
       this.$store.dispatch("projects/deleteProject", id);
     },
   },
-  // computed: {
-  //   projects() {
-  //     return this.$store.getters["projects/getProjects"];
-  //   },
-  // },
 };
 </script>
 

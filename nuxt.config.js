@@ -61,8 +61,19 @@ export default {
           login: {
             url: "/users/token/",
             method: "post",
-            propertyName: "token",
+            propertyName: "access_token",
           },
+          refresh: {
+            url: "/users/token/refresh/",
+            method: "post",
+          },
+          logout: false,
+          user: false,
+          // user: {
+          //   url: "/users/token/",
+          //   method: "get",
+          //   propertyName: "data.attributes",
+          // },
         },
         tokenType: "",
       },

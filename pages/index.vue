@@ -42,7 +42,12 @@
       <!-- Projects Section -->
       <section class="projects">
         <h2 class="headings">Here is some of my work</h2>
-        <ProjectCard class="index-projects-container" />
+        <ProjectCard
+          v-for="project in lastProjects"
+          :key="project.id"
+          :project="project"
+          class="index-projects-container"
+        />
       </section>
 
       <!-- Blog Section -->
@@ -76,6 +81,9 @@ export default {
 
   computed: {
     ...mapState(["_skills"]),
+    lastProjects() {
+      return this.$store.getters["projects/getLastProjects"];
+    },
   },
 };
 </script>

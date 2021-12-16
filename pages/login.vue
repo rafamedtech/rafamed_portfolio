@@ -4,7 +4,7 @@
     <p class="incorrect-message" v-if="incorrectAuth">
       Incorrect username or password entered!
     </p>
-    <form @submit.prevent="login">
+    <form @submit.prevent="userLogin">
       <label for="user">User</label>
       <input v-model="username" type="text" id="name" />
 
@@ -20,27 +20,21 @@
 export default {
   data() {
     return {
-      username: "",
-      password: "",
+      username: "rafamed",
+      password: "A7cFb6b3!",
       incorrectAuth: false,
     };
   },
   methods: {
-    async login() {
+    userLogin(event) {
+      const data = {
+        username: this.username,
+        password: this.password,
+      };
       try {
-        this.$auth.loginWith("local", {
-          data: {
-            username: this.username,
-            password: this.password,
-          },
-        });
-        this.$store.dispatch("login", {
-          username: this.username,
-          password: this.password,
-        });
-
-        await this.$router.push("/");
-      } catch (e) {
+        this.$store.dispatch("userLogin", data);
+        this.incorrectAuth = false;
+      } catch (error) {
         this.incorrectAuth = true;
       }
     },

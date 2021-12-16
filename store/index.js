@@ -1,24 +1,20 @@
 export const state = () => ({
   _skills: ["Figma", "TailwindCSS", "Javascript", "Vuejs", "Nuxtjs", "Django"],
-  accessToken: null,
-  refreshToken: null,
 });
 
 export const actions = {
   async nuxtServerInit({ dispatch }, context) {
     await dispatch("projects/loadProjects");
+    await dispatch("projects/loadLastProjects");
     await dispatch("blog/loadPosts");
   },
 
-  async login({ commit }, username, password) {
-    let { data } = await this.$axios.post("users/token/", username, password);
-    commit("updateStorage", data);
-  },
-};
+  async userLogin({ commit }, payload) {
+    let response = await this.$auth.loginWith("local", { data: payload });
 
-export const mutations = {
-  updateStorage(state, { access, refresh }) {
-    state.accessToken = access;
-    state.refreshToken = refresh;
+    await this.$auth.setUserToken(response.data.access, response.data.refresh);
+    if (response.data.access) {
+      await this.$router.push("/projects");
+    }
   },
 };

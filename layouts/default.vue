@@ -88,6 +88,15 @@ select {
   font-family: inherit;
 }
 
+input::-webkit-file-upload-button {
+  /* visibility: hidden; */
+  background-color: var(--accent-color);
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem;
+  color: #e5e5e5;
+}
+
 .neumorphism {
   border-radius: 2rem;
   background: var(--secondary-color);
