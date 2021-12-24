@@ -12,13 +12,13 @@
         <button class="btn cta">Add Project</button>
       </nuxt-link>
     </div>
-
-    <ProjectCard
-      v-for="project in projects"
-      :key="project.id"
-      :project="project"
-      class="projects-container"
-    />
+    <transition-group class="projects-container" tag="div" name="scale" appear>
+      <ProjectCard
+        v-for="project in projects"
+        :key="project.id"
+        :project="project"
+      />
+    </transition-group>
   </div>
 </template>
 
@@ -44,7 +44,39 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.scale-enter-from {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.scale-enter-to {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scale-enter-active {
+  transition: all 0.4s ease;
+}
+
+.scale-leave-from {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scale-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.scale-leave-active {
+  position: absolute;
+  transition: all 0.4s ease;
+}
+
+.scale-move {
+  transition: all 0.3s ease;
+}
 .description-container {
   display: flex;
   flex-direction: column;
@@ -78,6 +110,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  position: relative;
   width: 100%;
   padding: 2rem;
   justify-content: space-around;

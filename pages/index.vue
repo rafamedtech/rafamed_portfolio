@@ -42,12 +42,13 @@
       <!-- Projects Section -->
       <section class="projects">
         <h2 class="headings">Here is some of my work</h2>
-        <ProjectCard
-          v-for="project in lastProjects"
-          :key="project.id"
-          :project="project"
-          class="index-projects-container"
-        />
+        <div class="index-projects-container">
+          <ProjectCard
+            v-for="project in lastProjects"
+            :key="project.id"
+            :project="project"
+          />
+        </div>
       </section>
 
       <!-- Blog Section -->

@@ -1,6 +1,8 @@
 export const state = () => ({
   _projects: [],
   _lastProjects: [],
+  _projectFile: null,
+  _projectFileURL: "",
 });
 
 export const actions = {
@@ -17,13 +19,7 @@ export const actions = {
   },
 
   async createProject({ commit }, payload) {
-    let { data } = await this.$axios.post(
-      "/projects/create-project/",
-      payload
-      // {
-      //   headers: { Authorization: "multipart/form-data" },
-      // }
-    );
+    let { data } = await this.$axios.post("/projects/create-project/", payload);
 
     commit("addProject", data);
   },
@@ -43,6 +39,13 @@ export const getters = {
   getLastProjects(state) {
     return state._lastProjects;
   },
+
+  getProjectFile(state) {
+    return state._projectFile;
+  },
+  getProjectFileURL(state) {
+    return state._projectFileURL;
+  },
 };
 
 export const mutations = {
@@ -57,5 +60,13 @@ export const mutations = {
   },
   setLastProjects(state, projects) {
     state._lastProjects = projects.splice(-4);
+  },
+
+  // pending to review
+  setFileName(state, payload) {
+    state.projectFile = payload;
+  },
+  createFileURL(state, payload) {
+    state._projectFileURL = payload;
   },
 };

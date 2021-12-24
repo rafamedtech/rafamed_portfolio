@@ -4,7 +4,8 @@
     <div class="post-container">
       <h1>{{ post.title }}</h1>
       <span>{{ post.published.substring(0, 10) }}</span>
-      <article class="post-body" v-html="post.content"></article>
+      <!-- <article class="post-body" v-html="post.content"></article> -->
+      <nuxt-content :document="post.content" />
     </div>
   </div>
 </template>

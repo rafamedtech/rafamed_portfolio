@@ -1,9 +1,17 @@
 <template>
   <div class="blog-main">
-    <h2>Blog</h2>
-    <p>Here are some blogposts about my developer journey.</p>
+    <div class="description-container">
+      <div class="description-header">
+        <h2>Blog</h2>
+        <p>Here are some blogposts about my developer journey.</p>
+      </div>
+      <nuxt-link v-if="$auth.loggedIn" to="/blog/add-post/">
+        <button class="btn cta">Add Post</button>
+      </nuxt-link>
+    </div>
     <section class="posts-container">
-      <PostCard />
+      <PostCard v-if="posts.length" />
+      <NotFound v-else />
     </section>
   </div>
 </template>
@@ -22,6 +30,11 @@ export default {
       ],
     };
   },
+  data() {
+    return {
+      posts: [],
+    };
+  },
 };
 </script>
 
@@ -30,9 +43,25 @@ export default {
   margin-top: 4rem;
 }
 
+.description-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.description-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .blog-main h2 {
   font-weight: 300;
   text-align: center;
+
   color: var(--accent-color);
 }
 
@@ -52,6 +81,17 @@ export default {
 @media (min-width: 768px) {
   .blog-main {
     margin-top: 10rem;
+  }
+
+  .description-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  .description-header {
+    align-items: flex-start;
   }
 
   .blog-main p {

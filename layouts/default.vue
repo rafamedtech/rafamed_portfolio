@@ -1,7 +1,11 @@
 <template>
   <div>
     <Header />
-    <Nuxt />
+
+    <transition name="slide-fade">
+      <Nuxt />
+    </transition>
+
     <Footer />
   </div>
 </template>
@@ -52,6 +56,7 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: var(--secondary-color);
   transition: 0.3s ease-out;
+  overflow-x: hidden;
 }
 
 h2 {
@@ -89,7 +94,6 @@ select {
 }
 
 input::-webkit-file-upload-button {
-  /* visibility: hidden; */
   background-color: var(--accent-color);
   border-radius: 0.5rem;
   border: none;
@@ -118,7 +122,6 @@ input::-webkit-file-upload-button {
   border: none;
   border-radius: 1rem;
   font-size: 2rem;
-  /* background-color: var(--third-color); */
   color: var(--secondary-color);
   transition: 0.3s;
   cursor: pointer;
@@ -165,6 +168,55 @@ input::-webkit-file-upload-button {
 @media (min-width: 1024px) {
   .btn.cta {
     margin: 0;
+  }
+}
+
+/* Transitions */
+.slide-fade-enter {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-to {
+  transform: translateX(-10px);
+  opacity: 0;
+}
+
+.animated-bg {
+  background-image: linear-gradient(
+    to right,
+    #24385b 0%,
+    #121f3d 10%,
+    #24385b 20%,
+    #24385b 100%
+  );
+  /* background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 10%,
+    #f6f7f8 20%,
+    #f6f7f8 100%
+  ); */
+  /* background: linear-gradient(90deg, #24385b 8%, #121f3d 18%, #24385b 33%); */
+  background-size: 200% 100%;
+  animation: bgPos 1s linear infinite;
+  border-radius: 1rem;
+  height: 15rem;
+  width: 100%;
+}
+
+@keyframes bgPos {
+  0% {
+    background-position: 50% 0;
+  }
+
+  100% {
+    background-position: -150% 0;
   }
 }
 </style>

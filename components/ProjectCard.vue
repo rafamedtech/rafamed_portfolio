@@ -1,32 +1,32 @@
 <template>
-  <div>
-    <article class="project neumorphism">
-      <button
-        v-if="$auth.loggedIn"
-        @click="deleteProject(id)"
-        class="delete-icon"
-      >
-        X
-      </button>
-      <img
-        :src="`http://localhost:8000${project.featured_image}`"
-        alt="Render"
-      />
+  <article class="project neumorphism">
+    <button
+      v-if="$auth.loggedIn"
+      @click="deleteProject(project.id)"
+      class="delete-icon"
+    >
+      X
+    </button>
 
-      <h3>{{ project.title }}</h3>
-      <p>{{ project.description }}</p>
-      <div class="project-btns">
-        <a class="btn" :href="project.source_link" target="_blank">Source</a>
+    <img
+      :src="`http://localhost:8000${project.featured_image}`"
+      :alt="project.title"
+      class="animated-bg"
+    />
 
-        <a class="btn cta" :href="project.demo_link" target="_blank">Live 🚀</a>
-      </div>
-      <div class="tags-container">
-        <span v-for="(tag, index) in project.tags" :key="index" class="tag">{{
-          tag.name
-        }}</span>
-      </div>
-    </article>
-  </div>
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.description }}</p>
+    <div class="project-btns">
+      <a class="btn" :href="project.source_link" target="_blank">Source</a>
+
+      <a class="btn cta" :href="project.demo_link" target="_blank">Live 🚀</a>
+    </div>
+    <div class="tags-container">
+      <span v-for="(tag, index) in project.tags" :key="index" class="tag">{{
+        tag.name
+      }}</span>
+    </div>
+  </article>
 </template>
 
 <script>
@@ -42,15 +42,10 @@ export default {
       this.$store.dispatch("projects/deleteProject", id);
     },
   },
-  // computed: {
-  //   projects() {
-  //     return this.$store.getters["projects/getProjects"];
-  //   },
-  // },
 };
 </script>
 
-<style scoped>
+<style>
 .delete-icon {
   position: absolute;
   top: -1rem;
@@ -79,19 +74,16 @@ export default {
   align-items: center;
   min-width: 35rem;
   width: 35rem;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   position: relative;
+  transition: 0.3s;
 }
 
 .project p {
   text-align: center;
   padding: 2rem;
   color: var(--primary-color);
-}
-
-.project img {
-  width: 100%;
-  border-radius: 1rem;
+  font-size: 1.5rem;
 }
 
 .project-btns {
@@ -111,16 +103,16 @@ export default {
   border: 1px solid transparent;
 }
 
+.project-btns .btn.cta {
+  background-color: var(--accent-color);
+  color: #e5e5e5;
+}
+
 .project-btns .btn:hover,
 .project-btns .btn.cta:hover {
   background-color: transparent;
   color: var(--accent-color);
   border: 1px solid var(--primary-color);
-}
-
-.project-btns .btn.cta {
-  background-color: var(--accent-color);
-  color: #e5e5e5;
 }
 
 .tags-container {
