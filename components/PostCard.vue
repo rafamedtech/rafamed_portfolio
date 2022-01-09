@@ -1,7 +1,7 @@
 <template>
   <div>
     <article v-for="post in posts" :key="post.id" class="post neumorphism">
-      <img src="https://i.imgur.com/WaeyNqt.png" alt="" />
+      <img :src="`http://localhost:8000${post.thumbnail}`" alt="" />
 
       <article>
         <h2>{{ post.title }}</h2>

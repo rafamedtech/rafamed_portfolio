@@ -1,59 +1,57 @@
 <template>
-  <div class="">
-    <div class="neumorphism add-project-container">
-      <h2 class="headings">Add a new post</h2>
-      <form @submit.prevent="createProject">
-        <div class="first-row">
-          <div class="input-wrapper">
-            <label for="title">Title</label>
-            <input v-model="title" type="text" id="title" required />
-          </div>
+  <div class="neumorphism add-project-container">
+    <h2 class="headings">Add a new post</h2>
+    <form @submit.prevent="createProject">
+      <section>
+        <article class="body-container">
+          <label for="body">Body</label>
+          <client-only>
+            <Editor />
+          </client-only>
+        </article>
+        <aside class="fields-container">
+          <label for="title">Title</label>
+          <input v-model="title" type="text" id="title" required />
 
-          <div class="input-wrapper image">
-            <label for="image">Cover Photo</label>
-            <input @change="onFileSelected" type="file" id="image" required />
-          </div>
-          <figure>
+          <label for="image">Cover Photo</label>
+          <input
+            v-if="!cover_photo"
+            @change="onFileSelected"
+            type="file"
+            id="image"
+            required
+            class="cover-photo"
+          />
+
+          <figure class="cover-photo" v-else>
             <img :src="postCoverPhoto" :alt="title" />
           </figure>
-        </div>
 
-        <div class="second-row">
-          <div class="input-wrapper">
-            <label for="excerpt">Excerpt</label>
-            <input v-model="excerpt" type="text" id="excerpt" required />
-          </div>
+          <label for="excerpt">Excerpt</label>
+          <input v-model="excerpt" type="text" id="excerpt" required />
 
-          <div class="input-wrapper">
-            <label for="slug">Slug</label>
-            <input v-model="slug" type="text" id="slug" required />
-          </div>
-        </div>
+          <label for="slug">Slug</label>
+          <input v-model="slug" type="text" id="slug" required />
 
-        <div class="tags-wrapper">
-          <div class="input-wrapper">
-            <label for="tags">Tags</label>
-            <input
-              @input="splitTags"
-              type="text"
-              id="tags"
-              v-model="tags"
-              required
-            />
-          </div>
-          <div class="tags-container">
+          <label for="tags">Tags</label>
+          <input
+            @input="splitTags"
+            type="text"
+            id="tags"
+            v-model="tags"
+            required
+          />
+
+          <article class="tags-container">
             <span v-for="(tag, index) in tags" :key="index" class="tag">{{
               tag
             }}</span>
-          </div>
-        </div>
+          </article>
+        </aside>
+      </section>
 
-        <label for="excerpt">Body</label>
-        <textarea v-model="body" type="text" id="excerpt" required />
-
-        <input class="btn cta" type="submit" value="Create Post" />
-      </form>
-    </div>
+      <input class="btn cta" type="submit" value="Create Post" />
+    </form>
   </div>
 </template>
 
@@ -66,7 +64,7 @@ export default {
       excerpt: "",
       slug: "",
       tags: "",
-      body: "",
+      info: "",
     };
   },
   methods: {
@@ -90,14 +88,14 @@ export default {
       formData.append("title", this.title);
       formData.append("excerpt", this.excerpt);
       formData.append("slug", this.slug);
-      formData.append("body", this.body);
+      formData.append("contentHolder", this.contentHolder);
       formData.append("cover_photo", this.cover_photo, this.cover_photo.name);
       formData.append("tags", this.tags);
       console.log(formData);
 
-      this.$store.dispatch("blog/createPost", formData);
+      // this.$store.dispatch("blog/createPost", formData);
 
-      this.$router.push("/blog");
+      // this.$router.push("/blog");
     },
   },
   computed: {
@@ -109,53 +107,44 @@ export default {
 </script>
 
 <style scoped>
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 30%;
-}
-
-.first-row img {
+.cover-photo {
   height: 15rem;
+}
+.cover-photo img {
+  height: 100%;
   border-radius: 1rem;
 }
-
-.first-row {
-  width: 100%;
-  height: 15rem;
+section {
   display: flex;
-  gap: 2rem;
-}
-
-.first-row .input-wrapper {
-  width: 50%;
-}
-
-.first-row .input-wrapper.image {
-  width: fit-content;
-}
-
-.second-row {
-  width: 100%;
-  display: flex;
-  gap: 2rem;
-}
-
-.second-row .input-wrapper {
-  width: 30%;
-}
-
-.tags-wrapper {
-  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
   justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 2rem;
 }
 
+.body-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+  height: 80%;
+}
+.fields-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+}
 .tags-container {
   display: flex;
   justify-content: space-around;
-  width: 50%;
+  flex-wrap: wrap;
+  /* width: 50%; */
   margin-top: 2rem;
+  gap: 1rem;
 }
 
 .tags-container .tag {
@@ -173,11 +162,10 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
-  height: 100%;
-
+  min-height: 100vh;
   max-width: 1440px;
   margin: 12rem auto 0;
+  padding-top: 8rem;
   gap: 3rem;
 }
 
@@ -186,13 +174,17 @@ form {
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
+  height: 100%;
 }
 
 input.btn {
   margin: 0 auto;
 }
 
-textarea {
-  height: 30rem;
+.post-body {
+  width: 100%;
+  height: 100vh;
+  background-color: #e5e5e5;
+  color: var(--secondary-color);
 }
 </style>

@@ -5,10 +5,12 @@
         <h2>Blog</h2>
         <p>Here are some blogposts about my developer journey.</p>
       </div>
+
       <nuxt-link v-if="$auth.loggedIn" to="/blog/add-post/">
         <button class="btn cta">Add Post</button>
       </nuxt-link>
     </div>
+
     <section class="posts-container">
       <PostCard v-if="posts.length" />
       <NotFound v-else />
@@ -30,10 +32,10 @@ export default {
       ],
     };
   },
-  data() {
-    return {
-      posts: [],
-    };
+  computed: {
+    posts() {
+      return this.$store.getters["blog/getPosts"];
+    },
   },
 };
 </script>
@@ -61,7 +63,6 @@ export default {
 .blog-main h2 {
   font-weight: 300;
   text-align: center;
-
   color: var(--accent-color);
 }
 

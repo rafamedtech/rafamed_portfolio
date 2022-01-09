@@ -5,7 +5,6 @@ export const state = () => ({
 export const actions = {
   async nuxtServerInit({ dispatch }, context) {
     await dispatch("projects/loadProjects");
-    await dispatch("projects/loadLastProjects");
     await dispatch("blog/loadPosts");
   },
 

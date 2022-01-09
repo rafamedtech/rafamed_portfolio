@@ -2,10 +2,10 @@
   <div class="post-main" v-if="post">
     <nuxt-link class="back-btn" to="/blog">Go back</nuxt-link>
     <div class="post-container">
+      <img :src="`http://localhost:8000${post.thumbnail}`" :alt="post.title" />
       <h1>{{ post.title }}</h1>
       <span>{{ post.published.substring(0, 10) }}</span>
-      <!-- <article class="post-body" v-html="post.content"></article> -->
-      <nuxt-content :document="post.content" />
+      <article class="post-body" v-html="post.content"></article>
     </div>
   </div>
 </template>
