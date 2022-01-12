@@ -5,11 +5,17 @@ export const state = () => ({
 });
 
 export const actions = {
-  async loadPosts({ commit }) {
-    let { data } = await this.$axios.get("/blog/posts/");
+  // async loadPosts({ commit }) {
+  //   let { data } = await this.$axios.get("/posts/");
 
-    // console.log(data);
-    commit("setPosts", data);
+  //   // console.log(data);
+  //   commit("setPosts", data);
+  // },
+
+  async createPost({ commit }, payload) {
+    let { data } = await this.$axios.post("/posts/create-post/", payload);
+
+    commit("addPost", data);
   },
 };
 
@@ -34,6 +40,10 @@ export const getters = {
 export const mutations = {
   setPosts(state, posts) {
     state._posts = posts;
+  },
+
+  addPost(state, post) {
+    state._posts.push(post);
   },
 
   setFileName(state, payload) {

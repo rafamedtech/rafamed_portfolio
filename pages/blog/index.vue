@@ -6,7 +6,7 @@
         <p>Here are some blogposts about my developer journey.</p>
       </div>
 
-      <nuxt-link v-if="$auth.loggedIn" to="/blog/add-post/">
+      <nuxt-link v-if="$auth.loggedIn" to="/blog/create-post/">
         <button class="btn cta">Add Post</button>
       </nuxt-link>
     </div>

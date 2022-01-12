@@ -1,12 +1,12 @@
 <template>
   <div class="neumorphism add-project-container">
     <h2 class="headings">Add a new post</h2>
-    <form @submit.prevent="createProject">
+    <form @submit.prevent="createPost">
       <section>
         <article class="body-container">
           <label for="body">Body</label>
           <client-only>
-            <Editor />
+            <Editor v-model="content" />
           </client-only>
         </article>
         <aside class="fields-container">
@@ -33,7 +33,7 @@
           <label for="slug">Slug</label>
           <input v-model="slug" type="text" id="slug" required />
 
-          <label for="tags">Tags</label>
+          <!-- <label for="tags">Tags</label>
           <input
             @input="splitTags"
             type="text"
@@ -46,7 +46,7 @@
             <span v-for="(tag, index) in tags" :key="index" class="tag">{{
               tag
             }}</span>
-          </article>
+          </article> -->
         </aside>
       </section>
 
@@ -64,7 +64,7 @@ export default {
       excerpt: "",
       slug: "",
       tags: "",
-      info: "",
+      content: "",
     };
   },
   methods: {
@@ -88,14 +88,13 @@ export default {
       formData.append("title", this.title);
       formData.append("excerpt", this.excerpt);
       formData.append("slug", this.slug);
-      formData.append("contentHolder", this.contentHolder);
-      formData.append("cover_photo", this.cover_photo, this.cover_photo.name);
-      formData.append("tags", this.tags);
+      formData.append("content", this.content);
+      formData.append("thumbnail", this.cover_photo, this.cover_photo.name);
       console.log(formData);
 
-      // this.$store.dispatch("blog/createPost", formData);
+      this.$store.dispatch("blog/createPost", formData);
 
-      // this.$router.push("/blog");
+      this.$router.push("/blog");
     },
   },
   computed: {

@@ -12,13 +12,13 @@
         <button class="btn cta">Add Project</button>
       </nuxt-link>
     </div>
-    <transition-group class="projects-container" tag="div" name="scale" appear>
+    <div class="projects-container">
       <ProjectCard
         v-for="project in projects"
         :key="project.id"
         :project="project"
       />
-    </transition-group>
+    </div>
   </div>
 </template>
 

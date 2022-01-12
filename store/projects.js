@@ -7,8 +7,8 @@ export const state = () => ({
 
 export const actions = {
   async loadProjects({ commit }) {
-    let { data } = await this.$axios.get("/projects/");
-
+    let { data } = await this.$strapi.find("api/projects?populate=*");
+    console.log(data);
     commit("setProjects", data);
   },
 
@@ -47,7 +47,7 @@ export const getters = {
 export const mutations = {
   setProjects(state, projects) {
     state._projects = projects;
-    state._lastProjects = projects.slice(-4);
+    // state._lastProjects = projects.slice(-4);
   },
 
   addProject(state, project) {

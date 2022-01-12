@@ -45,40 +45,47 @@ export default {
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
     "@nuxtjs/auth-next",
+    "@nuxtjs/strapi",
   ],
+
+  strapi: {
+    url: "http://localhost:1337",
+    entities: ["projects"],
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: "http://localhost:8000",
+    // baseURL: "http://localhost:1337",
+    // baseURL: "http://localhost:8000",
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   // Auth module configuration: https://go.nuxtjs.dev/config-auth
-  auth: {
-    strategies: {
-      local: {
-        endpoints: {
-          login: {
-            url: "/users/token/",
-            method: "post",
-            propertyName: "access_token",
-          },
-          refresh: {
-            url: "/users/token/refresh/",
-            method: "post",
-          },
-          logout: false,
-          user: false,
-          // user: {
-          //   url: "/users/token/",
-          //   method: "get",
-          //   propertyName: "data.attributes",
-          // },
-        },
-        tokenType: "",
-      },
-    },
-  },
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: {
+  //           url: "/users/token/",
+  //           method: "post",
+  //           propertyName: "access_token",
+  //         },
+  //         refresh: {
+  //           url: "/users/token/refresh/",
+  //           method: "post",
+  //         },
+  //         logout: false,
+  //         user: false,
+  //         // user: {
+  //         //   url: "/users/token/",
+  //         //   method: "get",
+  //         //   propertyName: "data.attributes",
+  //         // },
+  //       },
+  //       tokenType: "",
+  //     },
+  //   },
+  // },
 };

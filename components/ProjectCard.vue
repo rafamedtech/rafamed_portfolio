@@ -1,30 +1,31 @@
 <template>
   <article class="project neumorphism">
-    <button
-      v-if="$auth.loggedIn"
-      @click="deleteProject(project.id)"
-      class="delete-icon"
-    >
-      X
-    </button>
-
     <img
-      :src="`http://localhost:8000${project.featured_image}`"
+      v-for="(image, index) in project.attributes.thumbnail['data']"
+      :key="index"
+      :src="`http://localhost:1337${image.attributes.url}`"
       :alt="project.title"
       class="animated-bg"
     />
 
-    <h3>{{ project.title }}</h3>
-    <p>{{ project.description }}</p>
+    <h3>{{ project.attributes.title }}</h3>
+    <p>{{ project.attributes.description }}</p>
     <div class="project-btns">
-      <a class="btn" :href="project.source_link" target="_blank">Source</a>
+      <a class="btn" :href="project.attributes.sourceLink" target="_blank"
+        >Source</a
+      >
 
-      <a class="btn cta" :href="project.demo_link" target="_blank">Live 🚀</a>
+      <a class="btn cta" :href="project.attributes.demoLink" target="_blank"
+        >Live 🚀</a
+      >
     </div>
     <div class="tags-container">
-      <span v-for="(tag, index) in project.tags" :key="index" class="tag">{{
-        tag.name
-      }}</span>
+      <span
+        v-for="(tag, index) in project.attributes.tags['data']"
+        :key="index"
+        class="tag"
+        >{{ tag.attributes.name }}</span
+      >
     </div>
   </article>
 </template>
@@ -33,7 +34,7 @@
 export default {
   props: {
     project: {
-      type: Object,
+      type: [Object, Array],
       required: true,
     },
   },
