@@ -1,7 +1,6 @@
 <template>
   <article class="project neumorphism">
     <img
-      :key="index"
       :src="`http://localhost:1337${project.attributes.thumbnail.data[0].attributes.url}`"
       :alt="project.title"
       class="animated-bg"
