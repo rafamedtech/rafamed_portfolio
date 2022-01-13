@@ -2,15 +2,19 @@
   <div class="post-main" v-if="post">
     <nuxt-link class="back-btn" to="/blog">Go back</nuxt-link>
     <div class="post-container">
-      <img :src="`http://localhost:8000${post.thumbnail}`" :alt="post.title" />
-      <h1>{{ post.title }}</h1>
-      <span>{{ post.published.substring(0, 10) }}</span>
-      <article class="post-body" v-html="post.content"></article>
+      <!-- <img
+        :src="`http://localhost:1337${post.attributes.coverPhoto}`"
+        :alt="post.attributes.title"
+      /> -->
+      <h1>{{ post.attributes.title }}</h1>
+      <!-- <span>{{ post.attributes.publishedAt.substring(0, 10) }}</span> -->
+      <article class="post-body" v-html="markdown"></article>
     </div>
   </div>
 </template>
 
 <script>
+import marked from "marked";
 export default {
   head() {
     return {
@@ -27,6 +31,9 @@ export default {
   computed: {
     post() {
       return this.$store.getters["blog/getSinglePost"](this.$route.params.slug);
+    },
+    markdown() {
+      return marked("# this is an h1");
     },
   },
 };

@@ -1,15 +1,18 @@
 <template>
   <div>
     <article v-for="post in posts" :key="post.id" class="post neumorphism">
-      <img :src="`http://localhost:8000${post.thumbnail}`" alt="" />
+      <!-- <img
+        :src="`http://localhost:1337${post.attributes.coverPhoto.data[0].attributes.url}`"
+        alt=""
+      /> -->
 
       <article>
-        <h2>{{ post.title }}</h2>
-        <span>{{ post.published.substring(0, 10) }}</span>
+        <h2>{{ post.attributes.title }}</h2>
+        <span>{{ post.attributes.publishedAt.substring(0, 10) }}</span>
         <p>
           {{ post.excerpt }}
         </p>
-        <nuxt-link class="btn cta" :to="`blog/${post.slug}`"
+        <nuxt-link class="btn cta" :to="`blog/${post.attributes.slug}`"
           >Read more</nuxt-link
         >
       </article>

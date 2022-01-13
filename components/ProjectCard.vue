@@ -1,9 +1,8 @@
 <template>
   <article class="project neumorphism">
     <img
-      v-for="(image, index) in project.attributes.thumbnail['data']"
       :key="index"
-      :src="`http://localhost:1337${image.attributes.url}`"
+      :src="`http://localhost:1337${project.attributes.thumbnail.data[0].attributes.url}`"
       :alt="project.title"
       class="animated-bg"
     />
@@ -34,13 +33,8 @@
 export default {
   props: {
     project: {
-      type: [Object, Array],
+      type: Object,
       required: true,
-    },
-  },
-  methods: {
-    deleteProject(id) {
-      this.$store.dispatch("projects/deleteProject", id);
     },
   },
 };

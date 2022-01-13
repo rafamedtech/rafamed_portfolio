@@ -5,7 +5,7 @@ export const state = () => ({
 export const actions = {
   async nuxtServerInit({ dispatch }, context) {
     await dispatch("projects/loadProjects");
-    // await dispatch("blog/loadPosts");
+    await dispatch("blog/loadPosts");
   },
 
   async userLogin({ commit }, payload) {

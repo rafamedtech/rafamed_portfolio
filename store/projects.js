@@ -47,7 +47,7 @@ export const getters = {
 export const mutations = {
   setProjects(state, projects) {
     state._projects = projects;
-    // state._lastProjects = projects.slice(-4);
+    state._lastProjects = projects.slice(-4);
   },
 
   addProject(state, project) {
