@@ -2,12 +2,12 @@
   <div class="post-main" v-if="post">
     <nuxt-link class="back-btn" to="/blog">Go back</nuxt-link>
     <div class="post-container">
-      <!-- <img
-        :src="`http://localhost:1337${post.attributes.coverPhoto}`"
+      <img
+        :src="`http://localhost:1337${post.attributes.coverPhoto.data.attributes.url}`"
         :alt="post.attributes.title"
-      /> -->
+      />
       <h1>{{ post.attributes.title }}</h1>
-      <!-- <span>{{ post.attributes.publishedAt.substring(0, 10) }}</span> -->
+      <span>{{ post.attributes.publishedAt.substring(0, 10) }}</span>
       <article class="post-body" v-html="markdown"></article>
     </div>
   </div>
@@ -15,15 +15,18 @@
 
 <script>
 import marked from "marked";
+import highlight from "highlight.js";
+import "highlight.js/styles/github.css";
+
 export default {
   head() {
     return {
-      title: `Rafamed.Dev | Blog - ${this.post.title}`,
+      title: `Rafamed.Dev | Blog - ${this.post.attributes.title}`,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.post.excerpt,
+          content: this.post.attributes.excerpt,
         },
       ],
     };
@@ -33,13 +36,24 @@ export default {
       return this.$store.getters["blog/getSinglePost"](this.$route.params.slug);
     },
     markdown() {
-      return marked("# this is an h1");
+      return marked(this.post.attributes.content, {
+        highlight(md) {
+          return highlight.highlightAuto(md).value;
+        },
+      });
     },
   },
 };
 </script>
 
 <style>
+pre {
+  background-color: grey;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  width: fit-content;
+}
 .post-main {
   margin-top: 12rem;
 }

@@ -8,7 +8,7 @@ export const actions = {
   async loadPosts({ commit }) {
     let { data } = await this.$strapi.find("api/posts?populate=*");
 
-    console.log(data);
+    // console.log(data);
     commit("setPosts", data);
   },
 
