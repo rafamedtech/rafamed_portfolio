@@ -9,8 +9,6 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@notionhq/client": "^0.4.12",
-    "@nuxtjs/auth-next": "5.0.0-1637745161.ea53f98",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/strapi": "^0.3.4",
     "axios": "^0.24.0",

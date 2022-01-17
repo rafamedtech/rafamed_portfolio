@@ -2,6 +2,7 @@
   <div>
     <article v-for="post in posts" :key="post.id" class="post neumorphism">
       <img
+        class="animated-bg"
         :src="`http://localhost:1337${post.attributes.coverPhoto.data.attributes.url}`"
         alt=""
       />
@@ -12,9 +13,7 @@
         <p>
           {{ post.attributes.excerpt }}
         </p>
-        <nuxt-link class="btn cta" :to="`blog/${post.attributes.slug}`"
-          >Read more</nuxt-link
-        >
+        <a class="btn cta" :href="`blog/${post.attributes.slug}`">Read more</a>
       </article>
     </article>
   </div>
@@ -66,6 +65,7 @@ export default {
 
 .post p {
   color: var(--third-color);
+  font-size: 1.5rem;
 }
 
 .btn.cta {
@@ -90,7 +90,13 @@ export default {
 
 @media (min-width: 1024px) {
   .post {
-    max-width: 70%;
+    max-width: 60%;
   }
 }
+
+/* @media (min-width: 1440px) {
+  .post {
+    max-width: 50%;
+  }
+} */
 </style>

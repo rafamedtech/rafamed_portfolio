@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="contact">
-      <h2 class="headings">Let’s work together!</h2>
+      <h2 class="headings">Let's work together!</h2>
       <article class="contact-content">
         <ContactImg class="blob" />
 
@@ -103,6 +103,10 @@ textarea:focus {
   outline: 2px solid var(--primary-color);
   transition: 0.1s;
   color: #e5e5e5;
+}
+
+.btn.cta.form {
+  width: 100%;
 }
 
 @media (min-width: 768px) {

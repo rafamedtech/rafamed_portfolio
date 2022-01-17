@@ -5,10 +5,6 @@
         <h2>Blog</h2>
         <p>Here are some blogposts about my developer journey.</p>
       </div>
-
-      <nuxt-link v-if="$auth.loggedIn" to="/blog/create-post/">
-        <button class="btn cta">Add Post</button>
-      </nuxt-link>
     </div>
 
     <section class="posts-container">
@@ -72,7 +68,7 @@ export default {
   color: var(--primary-color);
 }
 
-.posts-container {
+.posts-container div {
   display: flex;
   flex-direction: column;
   gap: 3rem;

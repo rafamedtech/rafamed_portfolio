@@ -3,11 +3,12 @@
     <nuxt-link class="back-btn" to="/blog">Go back</nuxt-link>
     <div class="post-container">
       <img
+        class="animated-bg"
         :src="`http://localhost:1337${post.attributes.coverPhoto.data.attributes.url}`"
         :alt="post.attributes.title"
       />
       <h1>{{ post.attributes.title }}</h1>
-      <span>{{ post.attributes.publishedAt.substring(0, 10) }}</span>
+      <span> {{ post.attributes.publishedAt.substring(0, 10) }}</span>
       <article class="post-body" v-html="markdown"></article>
     </div>
   </div>
@@ -16,7 +17,7 @@
 <script>
 import marked from "marked";
 import highlight from "highlight.js";
-import "highlight.js/styles/github.css";
+import "highlight.js/styles/github-dark.css";
 
 export default {
   head() {
@@ -47,13 +48,6 @@ export default {
 </script>
 
 <style>
-pre {
-  background-color: grey;
-  padding: 1rem;
-  font-size: 1.5rem;
-  font-weight: lighter;
-  width: fit-content;
-}
 .post-main {
   margin-top: 12rem;
 }
@@ -72,19 +66,29 @@ h1 {
   color: var(--primary-color);
 }
 
+.post-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .post-body p {
   color: var(--third-color);
+}
+
+.post-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-body a {
+  color: var(--accent-color);
 }
 
 .post-body img {
   width: 30rem;
 }
-
-/* .post-body code {
-  background-color: var(--primary-color);
-  color: var(--accent-color);
-  padding: 1rem;
-} */
 
 p {
   font-size: 1.8rem;

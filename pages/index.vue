@@ -197,6 +197,10 @@ main {
 }
 
 .blog {
+  margin-top: 8rem;
+}
+
+.blog div {
   display: flex;
   flex-direction: column;
   gap: 4rem;

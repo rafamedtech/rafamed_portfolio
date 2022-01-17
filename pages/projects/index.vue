@@ -8,9 +8,6 @@
           landing pages to fully functional web apps.
         </p>
       </div>
-      <nuxt-link v-if="$auth.loggedIn" to="/projects/add-project/">
-        <button class="btn cta">Add Project</button>
-      </nuxt-link>
     </div>
     <div class="projects-container">
       <ProjectCard

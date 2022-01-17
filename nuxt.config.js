@@ -20,7 +20,7 @@ export default {
   loading: { color: "#3B8070" },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ["@/assets/css/main"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -44,12 +44,11 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
-    "@nuxtjs/auth-next",
     "@nuxtjs/strapi",
   ],
 
   strapi: {
-    url: "http://localhost:1337",
+    url: "https://rafamed-portfolio.herokuapp.com",
     entities: ["projects"],
   },
 

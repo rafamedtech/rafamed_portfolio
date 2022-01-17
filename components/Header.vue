@@ -1,7 +1,7 @@
 <template>
   <header>
     <article>
-      <nuxt-link class="logo" to="/">Rafamed.Dev</nuxt-link>
+      <a class="logo" href="/">Rafamed.Dev</a>
     </article>
 
     <!-- Navigation Bar -->
