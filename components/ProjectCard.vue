@@ -1,7 +1,7 @@
 <template>
   <article class="project neumorphism">
     <img
-      :src="`https://rafamed-portfolio.herokuapp.com${project.attributes.thumbnail.data[0].attributes.url}`"
+      :src="project.attributes.thumbnail.data[0].attributes.url"
       :alt="project.title"
       class="animated-bg"
     />
