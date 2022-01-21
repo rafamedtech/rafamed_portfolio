@@ -61,9 +61,11 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  // generate: {
-  //   routes: ["blog/set-up-vue-app-running-on-vite"],
-  // },
+  router: {
+    scrollBehavior: function (to, from, savedPosition) {
+      return { x: 0, y: 0 };
+    },
+  },
 
   // Auth module configuration: https://go.nuxtjs.dev/config-auth
   // auth: {
