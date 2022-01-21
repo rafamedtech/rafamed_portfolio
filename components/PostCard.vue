@@ -3,7 +3,7 @@
     <article v-for="post in posts" :key="post.id" class="post neumorphism">
       <img
         class="animated-bg"
-        :src="`http://localhost:1337${post.attributes.coverPhoto.data.attributes.url}`"
+        :src="post.attributes.coverPhoto.data.attributes.url"
         alt=""
       />
 
