@@ -21,7 +21,7 @@ export const getters = {
   },
 
   getSinglePost: (state) => (slug) => {
-    return state._posts.find((post) => post.attributes.slug == slug);
+    return state._posts.find((post) => post.attributes.slug === slug);
   },
 };
 

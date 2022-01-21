@@ -61,6 +61,10 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
+  // generate: {
+  //   routes: ["blog/set-up-vue-app-running-on-vite"],
+  // },
+
   // Auth module configuration: https://go.nuxtjs.dev/config-auth
   // auth: {
   //   strategies: {

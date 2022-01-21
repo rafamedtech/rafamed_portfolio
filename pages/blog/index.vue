@@ -8,8 +8,7 @@
     </div>
 
     <section class="posts-container">
-      <PostCard v-if="posts.length" />
-      <NotFound v-else />
+      <PostCard v-for="post in posts" :key="post.id" />
     </section>
   </div>
 </template>
