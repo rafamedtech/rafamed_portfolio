@@ -13,7 +13,7 @@
         <p>
           {{ post.attributes.excerpt }}
         </p>
-        <a class="btn cta" :href="`blog/${post.attributes.slug}`">Read more</a>
+        <a class="btn cta" :href="post.attributes.slug">Read more</a>
       </article>
     </article>
   </div>

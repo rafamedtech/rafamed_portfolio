@@ -4,7 +4,7 @@
     <div class="post-container">
       <img
         class="animated-bg"
-        :src="`http://localhost:1337${post.attributes.coverPhoto.data.attributes.url}`"
+        :src="post.attributes.coverPhoto.data.attributes.url"
         :alt="post.attributes.title"
       />
       <h1>{{ post.attributes.title }}</h1>
