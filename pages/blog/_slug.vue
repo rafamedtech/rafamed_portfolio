@@ -1,5 +1,5 @@
 <template>
-  <div class="post-main" v-if="post">
+  <article class="post-main" v-if="post">
     <nuxt-link class="back-btn" to="/blog">Go back</nuxt-link>
     <div class="post-container">
       <img
@@ -11,7 +11,7 @@
       <span> {{ post.attributes.publishedAt.substring(0, 10) }}</span>
       <article class="post-body" v-html="markdown"></article>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
@@ -52,7 +52,7 @@ export default {
   margin-top: 12rem;
 }
 .post-container {
-  max-width: 60%;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
   margin-top: 0;
@@ -98,5 +98,17 @@ p {
   font-size: 1.5rem;
   padding: 2rem;
   color: var(--accent-color);
+}
+
+@media (min-width: 768px) {
+  .post-container {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .post-container {
+    max-width: 60%;
+  }
 }
 </style>
