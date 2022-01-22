@@ -81,6 +81,7 @@ pre {
   font-size: 1.5rem;
   font-weight: lighter;
   color: #e5e5e5;
+  overflow-x: scroll;
 }
 code {
   font-family: consolas;
