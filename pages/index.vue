@@ -62,7 +62,7 @@
       <!-- Blog Section -->
       <section class="blog">
         <h2 class="headings">My latest blog posts</h2>
-        <PostCard v-for="post in lastPosts" :key="post.id" />
+        <PostCard v-for="post in lastPosts" :key="post.id" :post="post" />
       </section>
 
       <!-- Contact Section -->

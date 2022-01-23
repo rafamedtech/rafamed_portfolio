@@ -8,7 +8,7 @@
     </div>
 
     <section class="posts-container">
-      <PostCard v-for="post in posts" :key="post.id" />
+      <PostCard v-for="post in posts" :key="post.id" :post="post" />
     </section>
   </div>
 </template>

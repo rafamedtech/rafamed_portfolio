@@ -1,6 +1,6 @@
 <template>
   <div>
-    <article v-for="post in posts" :key="post.id" class="post neumorphism">
+    <article class="post neumorphism">
       <img
         class="animated-bg"
         :src="post.attributes.coverPhoto.data.attributes.url"
@@ -23,11 +23,17 @@
 
 <script>
 export default {
-  computed: {
-    posts() {
-      return this.$store.getters["blog/getPosts"];
+  props: {
+    post: {
+      type: Object,
+      required: true,
     },
   },
+  // computed: {
+  //   posts() {
+  //     return this.$store.getters["blog/getPosts"];
+  //   },
+  // },
 };
 </script>
 
@@ -92,7 +98,7 @@ export default {
 
 @media (min-width: 1024px) {
   .post {
-    max-width: 60%;
+    max-width: 70%;
   }
 }
 
