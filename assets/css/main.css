@@ -75,18 +75,6 @@ input::-webkit-file-upload-button {
   color: #e5e5e5;
 }
 
-pre {
-  background-color: #454750;
-  padding: 34px 16px 32px 32px;
-  font-size: 1.5rem;
-  font-weight: lighter;
-  color: #e5e5e5;
-  overflow-x: scroll;
-}
-code {
-  font-family: consolas;
-}
-
 .neumorphism {
   border-radius: 2rem;
   background: var(--secondary-color);
@@ -170,14 +158,6 @@ code {
     #24385b 20%,
     #24385b 100%
   );
-  /* background-image: linear-gradient(
-    to right,
-    #f6f7f8 0%,
-    #edeef1 10%,
-    #f6f7f8 20%,
-    #f6f7f8 100%
-  ); */
-  /* background: linear-gradient(90deg, #24385b 8%, #121f3d 18%, #24385b 33%); */
   background-size: 200% 100%;
   animation: bgPos 1s linear infinite;
   border-radius: 1rem;

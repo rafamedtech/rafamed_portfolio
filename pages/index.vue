@@ -1,6 +1,14 @@
 <template>
   <div>
     <!-- Hero Section  -->
+    <!-- <transition-group tag="section" name="slide-fade" appear class="hero">
+      <HeroImg key="image" class="blob" />
+      <div key="div">
+        <h2>I'm Rafael Valenzuela</h2>
+        <h3>Nuxt/Django Web Developer</h3>
+        <nuxt-link class="btn cta" to="/contact">Contact me!</nuxt-link>
+      </div>
+    </transition-group> -->
     <section class="hero">
       <HeroImg class="blob" />
       <div>
@@ -54,7 +62,7 @@
       <!-- Blog Section -->
       <section class="blog">
         <h2 class="headings">My latest blog posts</h2>
-        <PostCard />
+        <PostCard v-for="post in lastPosts" :key="post.id" />
       </section>
 
       <!-- Contact Section -->
@@ -84,6 +92,9 @@ export default {
     ...mapState(["_skills"]),
     lastProjects() {
       return this.$store.getters["projects/getLastProjects"];
+    },
+    lastPosts() {
+      return this.$store.getters["blog/getLastPosts"];
     },
   },
 };

@@ -23,7 +23,6 @@
 
 <script>
 export default {
-  scrollToTop: true,
   computed: {
     posts() {
       return this.$store.getters["blog/getPosts"];

@@ -62,20 +62,14 @@ export default {
   build: {},
 
   router: {
-    scrollBehavior: function (to, from, savedPosition) {
+    scrollBehavior(to, from, savedPosition) {
+      if (savedPosition) {
+        return savedPosition;
+      }
+
       return { x: 0, y: 0 };
     },
   },
-
-  // router: {
-  //   scrollBehavior(to, from, savedPosition) {
-  //     if (savedPosition) {
-  //       return savedPosition;
-  //     }
-
-  //     return { x: 0, y: 0 };
-  //   },
-  // },
 
   // Auth module configuration: https://go.nuxtjs.dev/config-auth
   // auth: {

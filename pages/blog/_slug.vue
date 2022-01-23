@@ -72,6 +72,18 @@ h1 {
   gap: 2rem;
 }
 
+pre {
+  background-color: #454750;
+  padding: 32px 16px;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  color: #e5e5e5;
+  overflow-x: scroll;
+}
+code {
+  font-family: consolas;
+}
+
 .post-body p {
   color: var(--third-color);
 }
@@ -84,6 +96,7 @@ h1 {
 
 .post-body a {
   color: var(--accent-color);
+  font-size: 1.8rem;
 }
 
 .post-body img {
@@ -103,6 +116,11 @@ p {
 @media (min-width: 768px) {
   .post-container {
     max-width: 90%;
+  }
+
+  pre {
+    padding: 34px 16px 32px 32px;
+    overflow-x: visible;
   }
 }
 
