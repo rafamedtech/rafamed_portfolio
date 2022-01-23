@@ -103,10 +103,6 @@ code {
   width: 30rem;
 }
 
-p {
-  font-size: 1.8rem;
-}
-
 .back-btn {
   font-size: 1.5rem;
   padding: 2rem;
