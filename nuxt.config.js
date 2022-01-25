@@ -61,40 +61,13 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  router: {
-    scrollBehavior(to, from, savedPosition) {
-      if (savedPosition) {
-        return savedPosition;
-      }
+  // router: {
+  //   scrollBehavior(to, from, savedPosition) {
+  //     if (savedPosition) {
+  //       return savedPosition;
+  //     }
 
-      return { x: 0, y: 0 };
-    },
-  },
-
-  // Auth module configuration: https://go.nuxtjs.dev/config-auth
-  // auth: {
-  //   strategies: {
-  //     local: {
-  //       endpoints: {
-  //         login: {
-  //           url: "/users/token/",
-  //           method: "post",
-  //           propertyName: "access_token",
-  //         },
-  //         refresh: {
-  //           url: "/users/token/refresh/",
-  //           method: "post",
-  //         },
-  //         logout: false,
-  //         user: false,
-  //         // user: {
-  //         //   url: "/users/token/",
-  //         //   method: "get",
-  //         //   propertyName: "data.attributes",
-  //         // },
-  //       },
-  //       tokenType: "",
-  //     },
+  //     return { x: 0, y: 0 };
   //   },
   // },
 };

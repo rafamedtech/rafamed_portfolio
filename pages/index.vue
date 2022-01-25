@@ -82,7 +82,7 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: "Home",
+          content: "Welcome to my Portfolio website",
         },
       ],
     };
