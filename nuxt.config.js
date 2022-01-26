@@ -62,6 +62,6 @@ export default {
   build: {},
 
   generate: {
-    routes: ["/", "/projects", "/blog", "/blog/:slug", "/contact"],
+    fallback: true,
   },
 };
