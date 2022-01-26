@@ -61,13 +61,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  // router: {
-  //   scrollBehavior(to, from, savedPosition) {
-  //     if (savedPosition) {
-  //       return savedPosition;
-  //     }
-
-  //     return { x: 0, y: 0 };
-  //   },
-  // },
+  generate: {
+    routes: ["/", "/projects", "/blog", "/blog/:slug", "/contact"],
+  },
 };
