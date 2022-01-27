@@ -4,6 +4,7 @@ export const state = () => ({
 });
 
 export const actions = {
+  // fetch all projects from strapi
   async loadProjects({ commit }) {
     let { data } = await this.$strapi.find("api/projects?populate=*");
 

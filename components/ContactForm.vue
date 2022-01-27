@@ -24,6 +24,7 @@
           <input class="btn cta form" type="submit" value="Submit" />
         </form>
       </article>
+      <Modal v-if="modalShow" />
     </section>
   </div>
 </template>
@@ -37,11 +38,13 @@ export default {
         email: "",
         message: "",
       },
+      modalShow: false,
     };
   },
   methods: {
     async sendMessage() {
       await this.$supabase.from("messages").insert([this.submission]);
+      this.modalShow = true;
       this.submission.name = "";
       this.submission.email = "";
       this.submission.message = "";
