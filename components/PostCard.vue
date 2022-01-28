@@ -4,7 +4,7 @@
       <img
         class="animated-bg"
         :src="post.attributes.coverPhoto.data.attributes.url"
-        alt=""
+        :alt="post.attributes.title"
       />
 
       <article>
@@ -29,11 +29,6 @@ export default {
       required: true,
     },
   },
-  // computed: {
-  //   posts() {
-  //     return this.$store.getters["blog/getPosts"];
-  //   },
-  // },
 };
 </script>
 
@@ -101,10 +96,4 @@ export default {
     max-width: 70%;
   }
 }
-
-/* @media (min-width: 1440px) {
-  .post {
-    max-width: 50%;
-  }
-} */
 </style>

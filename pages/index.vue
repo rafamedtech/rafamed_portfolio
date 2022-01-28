@@ -1,15 +1,7 @@
 <template>
   <div>
-    <!-- Hero Section  -->
-    <!-- <transition-group tag="section" name="slide-fade" appear class="hero">
-      <HeroImg key="image" class="blob" />
-      <div key="div">
-        <h2>I'm Rafael Valenzuela</h2>
-        <h3>Nuxt/Django Web Developer</h3>
-        <nuxt-link class="btn cta" to="/contact">Contact me!</nuxt-link>
-      </div>
-    </transition-group> -->
-    <section class="hero">
+    <!-- Hero Section -->
+    <section data-aos="zoom-in" class="hero">
       <HeroImg class="blob" />
       <div>
         <h2>I'm Rafael Valenzuela</h2>
@@ -20,7 +12,7 @@
 
     <main>
       <!-- About Section -->
-      <section class="about neumorphism">
+      <section data-aos="zoom-in" class="about neumorphism">
         <h2 class="headings">Few words about me</h2>
         <p>
           Technology is my passion, I love creating websites and Web Apps and I
@@ -39,7 +31,7 @@
           </p>
         </article>
 
-        <div class="neumorphism card">
+        <div class="neumorphism card" data-aos="zoom-in">
           <article v-for="(skill, index) in _skills" :key="index">
             <i :class="`devicon-${skill.toLowerCase()}-plain`"></i>
             <p>{{ skill }}</p>
@@ -50,7 +42,7 @@
       <!-- Projects Section -->
       <section class="projects">
         <h2 class="headings">Here is some of my work</h2>
-        <div class="index-projects-container">
+        <div class="index-projects-container" data-aos="zoom-in">
           <ProjectCard
             v-for="project in lastProjects"
             :key="project.id"
@@ -62,7 +54,12 @@
       <!-- Blog Section -->
       <section class="blog">
         <h2 class="headings">My latest blog posts</h2>
-        <PostCard v-for="post in lastPosts" :key="post.id" :post="post" />
+        <PostCard
+          v-for="post in lastPosts"
+          :key="post.id"
+          :post="post"
+          data-aos="zoom-in"
+        />
       </section>
 
       <!-- Contact Section -->

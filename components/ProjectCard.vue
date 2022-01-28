@@ -9,11 +9,19 @@
     <h3>{{ project.attributes.title }}</h3>
     <p>{{ project.attributes.description }}</p>
     <div class="project-btns">
-      <a class="btn" :href="project.attributes.sourceLink" target="_blank"
+      <a
+        class="btn"
+        :href="project.attributes.sourceLink"
+        target="_blank"
+        rel="nofollow noopener noreferrer"
         >Source</a
       >
 
-      <a class="btn cta" :href="project.attributes.demoLink" target="_blank"
+      <a
+        class="btn cta"
+        :href="project.attributes.demoLink"
+        target="_blank"
+        rel="nofollow noopener noreferrer"
         >Live 🚀</a
       >
     </div>

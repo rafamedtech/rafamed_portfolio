@@ -14,16 +14,22 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      {
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css",
+      },
+    ],
   },
 
   loading: { color: "#3B8070" },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/assets/css/main"],
+  css: ["@/assets/css/main", "aos/dist/aos.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: "@/plugins/aos", ssr: false }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -49,7 +55,7 @@ export default {
 
   strapi: {
     url: "https://rafamed-portfolio.herokuapp.com",
-    entities: ["projects"],
+    entities: ["projects", "posts"],
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -59,9 +65,7 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
-
-  generate: {
-    fallback: true,
+  build: {
+    vendor: ["aos"],
   },
 };

@@ -1,9 +1,11 @@
 <template>
   <div class="modal">
-    <article class="modal-content neumorphism">
-      <p>Thanks for your message, I'll reply back as soon as possible.</p>
-      <nuxt-link to="/" class="btn cta">Close</nuxt-link>
-    </article>
+    <transition name="slide-fade" appear>
+      <article class="modal-content">
+        <p>Thanks for your message, I'll reply back as soon as possible.</p>
+        <nuxt-link to="/" class="btn cta">Close</nuxt-link>
+      </article>
+    </transition>
   </div>
 </template>
 
@@ -36,5 +38,6 @@ export default {};
   border-radius: 1rem;
   padding: 1rem;
   text-align: center;
+  background-color: var(--secondary-color);
 }
 </style>
