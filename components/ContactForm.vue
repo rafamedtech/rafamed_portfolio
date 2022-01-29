@@ -9,7 +9,7 @@
           @submit.prevent="sendMessage"
           id="contact-form"
           class="neumorphism"
-          data-aos="zoom-in"
+          data-aos="fade-zoom-in"
         >
           <label for="name">Full Name</label>
           <input v-model="submission.name" type="text" id="name" required />
