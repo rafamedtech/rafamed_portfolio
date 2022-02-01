@@ -36,7 +36,7 @@
         </article>
 
         <div class="neumorphism card" data-aos="fade-zoom-in">
-          <article v-for="(skill, index) in _skills" :key="index">
+          <article v-for="(skill, index) in skills" :key="index">
             <i :class="`devicon-${skill.toLowerCase()}-plain`"></i>
             <p>{{ skill }}</p>
           </article>
@@ -73,8 +73,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-
 export default {
   head() {
     return {
@@ -90,7 +88,9 @@ export default {
   },
 
   computed: {
-    ...mapState(["_skills"]),
+    skills() {
+      return this.$store.state["_skills"];
+    },
     lastProjects() {
       return this.$store.getters["projects/getLastProjects"];
     },

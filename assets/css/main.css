@@ -5,7 +5,6 @@
   /* Base Colors */
 
   --primary-color: #8be9fd;
-
   --secondary-color: #282a36;
   --third-color: #e5e5e5;
 
@@ -120,7 +119,6 @@ input::-webkit-file-upload-button {
   font-size: 1.6rem;
   text-align: center;
   background-color: var(--accent-color);
-
   color: #e5e5e5;
   border: 1px solid transparent;
 }
