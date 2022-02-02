@@ -3,7 +3,7 @@
     <transition name="slide-fade" appear>
       <article class="modal-content">
         <p>Thanks for your message, I'll reply back as soon as possible.</p>
-        <nuxt-link to="/" class="btn cta">Close</nuxt-link>
+        <a href="/" class="btn cta">Close</a>
       </article>
     </transition>
   </div>
