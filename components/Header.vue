@@ -40,7 +40,7 @@ header {
   left: 0;
   right: 0;
   max-width: 100vw;
-  height: inherit;
+  /* height: inherit; */
   background-color: var(--secondary-color);
   border-top: 1px solid var(--primary-color);
 }
