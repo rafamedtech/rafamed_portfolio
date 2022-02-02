@@ -30,7 +30,7 @@ header {
 }
 
 .nav {
-  height: 5rem;
+  margin-top: 5rem;
 }
 
 .nav ul {
