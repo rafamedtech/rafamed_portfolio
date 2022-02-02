@@ -56,14 +56,9 @@
       </section>
 
       <!-- Blog Section -->
-      <section class="blog">
+      <section class="blog" data-aos="fade-zoom-in">
         <h2 class="headings">My latest blog posts</h2>
-        <PostCard
-          v-for="post in lastPosts"
-          :key="post.id"
-          :post="post"
-          data-aos="fade-zoom-in"
-        />
+        <PostCard v-for="post in lastPosts" :key="post.id" :post="post" />
       </section>
 
       <!-- Contact Section -->

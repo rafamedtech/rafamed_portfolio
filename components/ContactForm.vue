@@ -2,14 +2,13 @@
   <div>
     <section class="contact">
       <h2 class="headings">Let's work together!</h2>
-      <article class="contact-content">
+      <article class="contact-content" data-aos="fade-zoom-in">
         <ContactImg class="blob" />
 
         <form
           @submit.prevent="sendMessage"
           id="contact-form"
           class="neumorphism"
-          data-aos="fade-zoom-in"
         >
           <label for="name">Full Name</label>
           <input v-model="submission.name" type="text" id="name" required />
