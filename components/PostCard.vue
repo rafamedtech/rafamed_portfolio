@@ -60,6 +60,7 @@ export default {
 
 .post h2 {
   color: lightgreen;
+  font-size: 3rem;
 }
 
 .post span {
