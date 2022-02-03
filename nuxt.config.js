@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
@@ -51,6 +53,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
     "@nuxtjs/strapi",
+    "@nuxtjs/sitemap",
   ],
 
   strapi: {
@@ -64,6 +67,14 @@ export default {
     // baseURL: "http://localhost:8000",
   },
 
+  sitemap: {
+    routes: async () => {
+      let { data } = await axios.get(
+        "https://rafamed-portfolio.herokuapp.com/api/posts?populate=*"
+      );
+      return data.data.map((post) => `/blog/${post.attributes.slug}`);
+    },
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // vendor: ["aos"],
