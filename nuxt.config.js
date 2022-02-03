@@ -68,6 +68,7 @@ export default {
   },
 
   sitemap: {
+    hostname: "https://rafamed.dev",
     routes: async () => {
       let { data } = await axios.get(
         "https://rafamed-portfolio.herokuapp.com/api/posts?populate=*"
