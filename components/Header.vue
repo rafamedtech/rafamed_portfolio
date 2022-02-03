@@ -29,10 +29,6 @@ header {
   transition: 0.3s ease-out;
 }
 
-/* .nav {
-  margin-bottom: 5rem;
-} */
-
 .nav ul {
   display: flex;
   justify-content: space-around;
