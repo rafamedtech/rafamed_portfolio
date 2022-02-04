@@ -2,7 +2,7 @@
   <div>
     <section class="contact">
       <h2 class="headings">Let's work together!</h2>
-      <article class="contact-content" data-aos="fade-zoom-in">
+      <article class="contact-content">
         <ContactImg class="blob" />
 
         <form

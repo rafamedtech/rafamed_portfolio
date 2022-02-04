@@ -44,9 +44,9 @@
       </section>
 
       <!-- Projects Section -->
-      <section class="projects">
+      <section class="projects" data-aos="fade-zoom-in">
         <h2 class="headings">Here is some of my work</h2>
-        <div class="index-projects-container" data-aos="fade-zoom-in">
+        <div class="index-projects-container">
           <ProjectCard
             v-for="project in lastProjects"
             :key="project.id"
@@ -62,7 +62,9 @@
       </section>
 
       <!-- Contact Section -->
-      <ContactForm />
+      <section data-aos="fade-zoom-in">
+        <ContactForm />
+      </section>
     </main>
   </div>
 </template>

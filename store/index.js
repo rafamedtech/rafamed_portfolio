@@ -1,5 +1,5 @@
 export const state = () => ({
-  _skills: ["Figma", "TailwindCSS", "Javascript", "Vuejs", "Nuxtjs", "Django"],
+  _skills: ["Git", "TailwindCSS", "Javascript", "Vuejs", "Nuxtjs", "Django"],
 });
 
 export const actions = {
