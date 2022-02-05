@@ -36,14 +36,21 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+  publicRuntimeConfig: {
+    supabaseUrl: process.env.SUPABASE_URL,
+    strapiUrl: process.env.STRAPI_URL,
+  },
+  privateRuntimeConfig: {
+    supabaseKey: process.env.SUPABASE_KEY,
+  },
+
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     [
       "nuxt-supabase",
       {
-        supabaseUrl: "https://atvjxufozpfeqjlzwznr.supabase.co",
-        supabaseKey:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNjU4ODMwMywiZXhwIjoxOTUyMTY0MzAzfQ.2ZRCh748peT1TNrI_P_at51gncwrdQHwvzitKh05f0s",
+        supabaseUrl: process.env.SUPABASE_URL,
+        supabaseKey: process.env.SUPABASE_KEY,
       },
     ],
   ],
@@ -57,7 +64,7 @@ export default {
   ],
 
   strapi: {
-    url: "https://rafamed-portfolio.herokuapp.com",
+    url: process.env.STRAPI_URL,
     entities: ["projects", "posts"],
   },
 
@@ -71,7 +78,7 @@ export default {
     hostname: "https://rafamed.dev",
     routes: async () => {
       let { data } = await axios.get(
-        "https://rafamed-portfolio.herokuapp.com/api/posts?populate=*"
+        `${process.env.STRAPI_URL}/api/posts?populate=*`
       );
       return data.data.map((post) => `/blog/${post.attributes.slug}`);
     },
