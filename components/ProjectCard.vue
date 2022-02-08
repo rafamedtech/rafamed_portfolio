@@ -2,7 +2,7 @@
   <article class="project neumorphism">
     <img
       :src="project.attributes.thumbnail.data[0].attributes.url"
-      :alt="project.title"
+      :alt="project.attributes.title"
       class="animated-bg"
     />
 
@@ -48,35 +48,12 @@ export default {
 </script>
 
 <style>
-.delete-icon {
-  position: absolute;
-  top: -1rem;
-  right: -1rem;
-  cursor: pointer;
-  color: var(--secondary-color);
-  font-size: 1.5rem;
-  background: var(--accent-color);
-  border: 1px solid transparent;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  text-align: center;
-  padding: 0;
-  transition: 0.3s;
-}
-
-.delete-icon:hover {
-  background: var(--secondary-color);
-  color: var(--accent-color);
-  border: 1px solid var(--primary-color);
-}
 .project {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-width: 35rem;
   width: 35rem;
-  /* margin: 0 auto; */
   position: relative;
   transition: 0.3s;
 }
@@ -100,7 +77,6 @@ export default {
   font-size: 1.6rem;
   text-align: center;
   background-color: lightgreen;
-
   color: var(--secondary-color);
   border: 1px solid transparent;
 }

@@ -83,7 +83,8 @@ export default {
   }
   .post img {
     max-width: 50%;
-    height: 100%;
+    height: 25rem;
+    object-fit: cover;
   }
 
   .post article {

@@ -114,6 +114,11 @@ code {
     max-width: 90%;
   }
 
+  .post-container img {
+    height: 50rem;
+    object-fit: cover;
+  }
+
   pre {
     padding: 34px 16px 32px 32px;
     overflow-x: visible;
