@@ -60,8 +60,14 @@ export default {
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
     "@nuxtjs/strapi",
+    "@nuxtjs/robots",
     "@nuxtjs/sitemap",
   ],
+
+  robots: {
+    UserAgent: "*",
+    Disallow: "/",
+  },
 
   strapi: {
     url: process.env.STRAPI_URL,
