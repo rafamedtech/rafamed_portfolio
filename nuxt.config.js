@@ -64,11 +64,6 @@ export default {
     "@nuxtjs/sitemap",
   ],
 
-  robots: {
-    UserAgent: "*",
-    Disallow: "/",
-  },
-
   strapi: {
     url: process.env.STRAPI_URL,
     entities: ["projects", "posts"],
