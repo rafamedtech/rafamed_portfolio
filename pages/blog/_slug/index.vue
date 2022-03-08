@@ -78,6 +78,11 @@ h2 {
   gap: 2rem;
 }
 
+.post-body img {
+  width: 100%;
+  height: 100%;
+}
+
 pre {
   background-color: #454750;
   padding: 32px 16px;
