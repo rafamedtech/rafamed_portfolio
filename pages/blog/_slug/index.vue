@@ -78,7 +78,7 @@ h2 {
   gap: 2rem;
 }
 
-.post-body img {
+.post-container .post-body img {
   width: 100%;
   height: 100%;
 }
