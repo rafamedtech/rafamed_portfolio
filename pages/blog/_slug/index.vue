@@ -1,9 +1,10 @@
 <template>
   <article class="post-main" v-if="post">
-    <nuxt-link class="back-btn" to="/blog">Go back</nuxt-link>
+    <button @click="$router.go(-1)" class="back-btn">Go back</button>
+
     <div class="post-container">
       <img
-        class="animated-bg"
+        class="animated-bg neumorphism"
         :src="post.attributes.coverPhoto.data.attributes.url"
         :alt="post.attributes.title"
       />
@@ -48,9 +49,6 @@ export default {
 </script>
 
 <style>
-.post-main {
-  margin-top: 12rem;
-}
 .post-container {
   max-width: 100%;
   margin: 0 auto;
@@ -61,8 +59,16 @@ export default {
   gap: 2rem;
 }
 
+.post-container img {
+  padding: 0;
+}
+
 h1 {
   font-size: 4rem;
+  color: var(--accent-color);
+}
+
+h2 {
   color: var(--primary-color);
 }
 
@@ -82,6 +88,17 @@ pre {
 }
 code {
   font-family: consolas;
+  background-color: #454750;
+}
+
+aside {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+  background-color: floralwhite;
+  padding: 2rem;
+  border-radius: 1rem;
+  /* width: fit-content; */
+  margin-top: 1rem;
 }
 
 .post-body p {
@@ -107,9 +124,16 @@ code {
   font-size: 1.5rem;
   padding: 2rem;
   color: var(--accent-color);
+  background: transparent;
+  border: none;
+  margin-bottom: 2rem;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
+  .post-main {
+    margin-top: 10rem;
+  }
   .post-container {
     max-width: 90%;
   }

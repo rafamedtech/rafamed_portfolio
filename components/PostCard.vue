@@ -2,7 +2,7 @@
   <div>
     <article class="post neumorphism">
       <img
-        class="animated-bg"
+        class="animated-bg neumorphism"
         :src="post.attributes.coverPhoto.data.attributes.url"
         :alt="post.attributes.title"
       />
@@ -56,6 +56,7 @@ export default {
 .post img {
   max-width: 100%;
   border-radius: 2rem;
+  padding: 0;
 }
 
 .post h2 {
@@ -90,12 +91,13 @@ export default {
   .post article {
     align-items: revert;
     text-align: revert;
+    width: 50%;
   }
 }
 
 @media (min-width: 1024px) {
   .post {
-    max-width: 70%;
+    width: 70%;
   }
 }
 </style>
