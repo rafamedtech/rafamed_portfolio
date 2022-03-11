@@ -8,7 +8,13 @@ export const actions = {
   async loadPosts({ commit }) {
     let { data } = await this.$strapi.find("api/posts?populate=*");
 
-    commit("setPosts", data);
+    const sortedData = data.sort((a, b) => {
+      return (
+        new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt)
+      );
+    });
+
+    commit("setPosts", sortedData);
   },
 };
 
@@ -28,7 +34,9 @@ export const getters = {
 
 export const mutations = {
   setPosts(state, posts) {
-    state._posts = posts;
+    state._posts = posts.sort(
+      (a, b) => b.attributes.createdAt - a.attributes.createdAt
+    );
     state._lastPosts = posts.slice(-2);
   },
 };
