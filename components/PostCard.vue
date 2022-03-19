@@ -13,7 +13,9 @@
         <p>
           {{ post.attributes.excerpt }}
         </p>
-        <nuxt-link class="btn cta" :to="`blog/${post.attributes.slug}`"
+        <nuxt-link
+          class="btn cta"
+          :to="{ path: `blog/${post.attributes.slug}` }"
           >Read more</nuxt-link
         >
       </article>
