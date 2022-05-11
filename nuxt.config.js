@@ -71,18 +71,18 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseURL: "http://localhost:1337",
-    // baseURL: "http://localhost:8000",
+    baseURL: "https://rafamed.dev",
   },
 
-  sitemap: {
-    hostname: "https://rafamed.dev",
-    routes: async () => {
-      let { data } = await axios.get(
-        `${process.env.STRAPI_URL}/api/posts?populate=*`
-      );
-      return data.data.map((post) => `/blog/${post.attributes.slug}`);
-    },
-  },
+  // sitemap: {
+  //   hostname: "https://rafamed.dev",
+  //   routes: async () => {
+  //     let { data } = await axios.get(
+  //       `${process.env.STRAPI_URL}/api/posts?populate=*`
+  //     );
+  //     return data.data.map((post) => `/blog/${post.slug}`);
+  //   },
+  // },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 };

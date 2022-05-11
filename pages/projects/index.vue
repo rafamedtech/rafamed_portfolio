@@ -100,7 +100,7 @@ export default {
 .projects-main p {
   text-align: center;
   padding: 2rem;
-  color: var(--primary-color);
+  color: var(--third-color);
 }
 
 .projects-container {

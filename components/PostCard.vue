@@ -3,19 +3,17 @@
     <article class="post neumorphism">
       <img
         class="animated-bg neumorphism"
-        :src="post.attributes.coverPhoto.data.attributes.url"
-        :alt="post.attributes.title"
+        :src="post.better_featured_image.source_url"
+        :alt="post.title.rendered"
       />
 
       <article>
-        <h2>{{ post.attributes.title }}</h2>
-        <span>{{ post.attributes.publishedAt.substring(0, 10) }}</span>
-        <p>
-          {{ post.attributes.excerpt }}
-        </p>
-        <nuxt-link
-          class="btn cta"
-          :to="{ path: `blog/${post.attributes.slug}` }"
+        <h2>{{ post.title.rendered }}</h2>
+        <span>{{ post.date.substring(0, 10) }}</span>
+
+        <span v-html="post.excerpt.rendered"></span>
+
+        <nuxt-link class="btn cta" :to="{ path: `blog/${post.slug}` }"
           >Read more</nuxt-link
         >
       </article>
@@ -62,12 +60,12 @@ export default {
 }
 
 .post h2 {
-  color: lightgreen;
+  color: var(--primary-color);
   font-size: 3rem;
 }
 
 .post span {
-  color: var(--primary-color);
+  color: lightgreen;
 }
 
 .post p {

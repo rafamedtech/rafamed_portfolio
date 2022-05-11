@@ -64,7 +64,7 @@ export default {
 .blog-main p {
   text-align: center;
   padding: 2rem;
-  color: var(--primary-color);
+  color: var(--third-color);
 }
 
 .posts-container div {

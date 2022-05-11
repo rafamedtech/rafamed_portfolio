@@ -1,37 +1,30 @@
 <template>
   <article class="project neumorphism">
     <img
-      :src="project.attributes.thumbnail.data[0].attributes.url"
-      :alt="project.attributes.title"
+      :src="project.better_featured_image.media_details.sizes.medium.source_url"
+      :alt="project.title.rendered"
       class="animated-bg"
     />
 
-    <h3>{{ project.attributes.title }}</h3>
-    <p>{{ project.attributes.description }}</p>
+    <h3>{{ project.title.rendered }}</h3>
+    <span v-html="project.excerpt.rendered"></span>
     <div class="project-btns">
-      <a
-        class="btn"
-        :href="project.attributes.sourceLink"
-        target="_blank"
-        rel="nofollow noopener noreferrer"
-        >Source</a
+      <nuxt-link class="btn" :to="{ path: `/projects/${project.slug}` }"
+        >More info</nuxt-link
       >
 
       <a
         class="btn cta"
-        :href="project.attributes.demoLink"
+        :href="project.acf.live_link"
         target="_blank"
         rel="nofollow noopener noreferrer"
         >Live 🚀</a
       >
     </div>
     <div class="tags-container">
-      <span
-        v-for="(tag, index) in project.attributes.tags['data']"
-        :key="index"
-        class="tag"
-        >{{ tag.attributes.name }}</span
-      >
+      <span v-for="(tag, index) in project.acf.tags" :key="index" class="tag">{{
+        tag.name
+      }}</span>
     </div>
   </article>
 </template>
@@ -52,16 +45,21 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   min-width: 35rem;
   width: 35rem;
   position: relative;
   transition: 0.3s;
 }
 
+.project h3 {
+  color: var(--primary-color);
+}
+
 .project p {
   text-align: center;
   padding: 2rem;
-  color: var(--primary-color);
+  color: var(--third-color);
   font-size: 1.5rem;
 }
 

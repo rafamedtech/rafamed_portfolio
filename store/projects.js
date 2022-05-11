@@ -6,7 +6,8 @@ export const state = () => ({
 export const actions = {
   // fetch all projects from strapi
   async loadProjects({ commit }) {
-    let { data } = await this.$strapi.find("api/projects?populate=*");
+    // let { data } = await this.$strapi.find("api/projects?populate=*");
+    let { data } = await this.$axios("/wordpress/wp-json/wp/v2/projects/");
 
     commit("setProjects", data);
   },
@@ -19,6 +20,10 @@ export const getters = {
 
   getLastProjects(state) {
     return state._lastProjects;
+  },
+
+  getSingleProject: (state) => (slug) => {
+    return state._projects.find((project) => project.slug === slug);
   },
 };
 

@@ -67,6 +67,10 @@ label,
 span {
   font-size: 1.6rem;
   color: var(--third-color);
+  /* color: lightgreen; */
+}
+
+span {
   color: lightgreen;
 }
 

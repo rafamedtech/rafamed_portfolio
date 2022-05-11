@@ -1,15 +1,17 @@
 <template>
   <article class="post-main" v-if="post">
-    <button @click="$router.go(-1)" class="back-btn">Go back</button>
+    <button @click="$router.go(-1)" class="back-btn neumorphism">
+      Go back
+    </button>
 
     <div class="post-container">
       <img
         class="animated-bg neumorphism"
-        :src="post.attributes.coverPhoto.data.attributes.url"
-        :alt="post.attributes.title"
+        :src="post.better_featured_image.source_url"
+        :alt="post.title.rendered"
       />
-      <h1>{{ post.attributes.title }}</h1>
-      <span> {{ post.attributes.publishedAt.substring(0, 10) }}</span>
+      <h1>{{ post.title.rendered }}</h1>
+      <span> {{ post.date.substring(0, 10) }}</span>
       <article class="post-body" v-html="markdown"></article>
     </div>
   </article>
@@ -23,12 +25,12 @@ import "highlight.js/styles/github-dark.css";
 export default {
   head() {
     return {
-      title: `Rafamed.Dev | Blog - ${this.post.attributes.title}`,
+      title: `Rafamed.Dev | Blog - ${this.post.title.rendered}`,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.post.attributes.excerpt,
+          content: this.post.excerpt.rendered,
         },
       ],
     };
@@ -38,7 +40,7 @@ export default {
       return this.$store.getters["blog/getSinglePost"](this.$route.params.slug);
     },
     markdown() {
-      return marked(this.post.attributes.content, {
+      return marked(this.post.content.rendered, {
         highlight(md) {
           return highlight.highlightAuto(md).value;
         },
@@ -133,6 +135,8 @@ aside {
   border: none;
   margin-bottom: 2rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 768px) {

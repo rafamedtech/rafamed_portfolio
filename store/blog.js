@@ -6,15 +6,16 @@ export const state = () => ({
 export const actions = {
   // fetch all posts from strapi
   async loadPosts({ commit }) {
-    let { data } = await this.$strapi.find("api/posts?populate=*");
-
-    const sortedData = data.sort((a, b) => {
-      return (
-        new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt)
-      );
-    });
-
-    commit("setPosts", sortedData);
+    try {
+      let { data } = await this.$axios("/wordpress/wp-json/wp/v2/posts");
+      // console.log(data);
+      const sortedData = data.sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+      });
+      commit("setPosts", sortedData);
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 
@@ -28,15 +29,13 @@ export const getters = {
   },
 
   getSinglePost: (state) => (slug) => {
-    return state._posts.find((post) => post.attributes.slug === slug);
+    return state._posts.find((post) => post.slug === slug);
   },
 };
 
 export const mutations = {
   setPosts(state, posts) {
-    state._posts = posts.sort(
-      (a, b) => b.attributes.createdAt - a.attributes.createdAt
-    );
+    state._posts = posts.sort((a, b) => b.date - a.date);
     state._lastPosts = posts.slice(-2);
   },
 };
