@@ -74,15 +74,15 @@ export default {
     baseURL: "https://rafamed.dev",
   },
 
-  // sitemap: {
-  //   hostname: "https://rafamed.dev",
-  //   routes: async () => {
-  //     let { data } = await axios.get(
-  //       `${process.env.STRAPI_URL}/api/posts?populate=*`
-  //     );
-  //     return data.data.map((post) => `/blog/${post.slug}`);
-  //   },
-  // },
+  sitemap: {
+    hostname: "https://rafamed.dev",
+    routes: async () => {
+      let { data } = await axios.get(
+        `https://rafamed.dev/wordpress/wp-json/wp/v2/posts`
+      );
+      return data.map((post) => `/blog/${post.slug}`);
+    },
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 };
