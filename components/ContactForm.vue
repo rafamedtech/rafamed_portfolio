@@ -42,12 +42,25 @@ export default {
     };
   },
   methods: {
-    async sendMessage() {
-      await this.$supabase.from("messages").insert([this.submission]);
+    sendMessage() {
+      const formData = new FormData();
+      formData.append("your-name", this.submission.name);
+      formData.append("your-email", this.submission.email);
+      formData.append("your-message", this.submission.message);
+      this.$store.dispatch("sendForm", formData);
+
       this.modalShow = true;
-      this.submission.name = "";
-      this.submission.email = "";
-      this.submission.message = "";
+
+      // if (this.$route.path === "/") {
+      //   window.scrollTo(0, 0);
+      // }
+
+      this.submission = {
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      };
     },
   },
 };

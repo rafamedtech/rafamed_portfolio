@@ -25,7 +25,7 @@ export default {
     ],
   },
 
-  loading: { color: "#3B8070" },
+  loading: false,
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["@/assets/css/main", "aos/dist/aos.css"],

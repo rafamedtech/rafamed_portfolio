@@ -20,7 +20,7 @@
         <h2 class="headings">Few words about me</h2>
         <p>
           Technology is my passion, I love creating websites and Web Apps and I
-          also enjoy share what I just learned with everyone.
+          also enjoy sharing what I just learned with everyone.
         </p>
         <AboutImg />
       </section>
